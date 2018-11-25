@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwampMenuScript : MonoBehaviour {
 
@@ -38,5 +39,10 @@ public class SwampMenuScript : MonoBehaviour {
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("Start Menu");
     }
 }
