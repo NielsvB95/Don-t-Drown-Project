@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CaveMenuscript : MonoBehaviour {
 
@@ -39,10 +38,5 @@ public class CaveMenuscript : MonoBehaviour {
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
-    }
-
-    public void Quit()
-    {
-        SceneManager.LoadScene("Start Menu");
     }
 }
