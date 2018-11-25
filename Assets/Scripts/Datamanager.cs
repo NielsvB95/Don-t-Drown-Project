@@ -7,6 +7,7 @@ public class Datamanager : MonoBehaviour {
     public static Datamanager instance;
 
     /// <summary>The player's remaining lives.</summary>
+    public GameObject Player;
 
     /// <summary>Awake is called when the script instance is being loaded.</summary>
     void Awake()
