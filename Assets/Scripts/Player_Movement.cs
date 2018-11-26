@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour {
 
     public float moveSpeed = 2f;
-
-	// Use this for initialization
-	void Start () {
-		
+    Datamanager datamanager = new Datamanager();
+    // Use this for initialization
+    void Start () {
+        transform.position = datamanager.Load();
 	}
 	
 	// Update is called once per frame

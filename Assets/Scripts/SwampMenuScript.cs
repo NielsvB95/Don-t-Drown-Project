@@ -17,7 +17,7 @@ public class SwampMenuScript : MonoBehaviour {
         {
             if (!GameIsPaused)
             {
-                PauseForrest();
+                PauseSwamp();
             }
             else
             {
@@ -35,7 +35,7 @@ public class SwampMenuScript : MonoBehaviour {
         GameIsPaused = true;
     }
 
-    void PauseForrest()
+    void PauseSwamp()
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -43,6 +43,7 @@ public class SwampMenuScript : MonoBehaviour {
 
     public void Quit()
     {
+        GameIsPaused = true;
         SceneManager.LoadScene("Start Menu");
     }
 }

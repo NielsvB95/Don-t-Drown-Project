@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CaveMenuscript : MonoBehaviour {
 
@@ -12,18 +13,15 @@ public class CaveMenuscript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (CaveCollision)
+        if (CaveCollision && !GameIsPaused)
         {
-            if (!GameIsPaused)
-            {
-                PauseForrest();
-            }
-            else
-            {
-                Resume();
-                GameIsPaused = false;
-                CaveCollision = false;
-            }
+            PauseCave();
+        }
+        else
+        {
+            Resume();
+            GameIsPaused = false;
+            CaveCollision = false;
         }
     }
 
@@ -34,9 +32,17 @@ public class CaveMenuscript : MonoBehaviour {
         GameIsPaused = true;
     }
 
-    void PauseForrest()
+    void PauseCave()
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void Quit()
+    {
+        CaveCollision = false;
+        activeMenu.SetActive(false);
+        GameIsPaused = true;
+        SceneManager.LoadScene("Start Menu");
     }
 }
