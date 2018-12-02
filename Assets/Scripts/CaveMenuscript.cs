@@ -10,18 +10,28 @@ public class CaveMenuscript : MonoBehaviour {
 
     public GameObject activeMenu;
 
+    void Start()
+    {
+        activeMenu.SetActive(false);
+        CaveCollision = false;
+        Time.timeScale = 1f;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (CaveCollision && !GameIsPaused)
+        if (CaveCollision)
         {
-            PauseCave();
-        }
-        else
-        {
-            Resume();
-            GameIsPaused = false;
-            CaveCollision = false;
+            if (!GameIsPaused)
+            {
+                PauseCave();
+            }
+            else
+            {
+                Resume();
+                GameIsPaused = false;
+                CaveCollision = false;
+            }
         }
     }
 
@@ -40,9 +50,9 @@ public class CaveMenuscript : MonoBehaviour {
 
     public void Quit()
     {
-        CaveCollision = false;
         activeMenu.SetActive(false);
-        GameIsPaused = true;
+        CaveCollision = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Start Menu");
     }
 }

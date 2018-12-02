@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ForrestMenuScript : MonoBehaviour {
+
     public static bool GameIsPaused = false;
     public static bool ForrestCollision = false;
 
@@ -37,5 +39,11 @@ public class ForrestMenuScript : MonoBehaviour {
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void Quit()
+    {
+        GameIsPaused = true;
+        SceneManager.LoadScene("Start Menu");
     }
 }
