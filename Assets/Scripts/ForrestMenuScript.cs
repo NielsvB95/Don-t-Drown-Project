@@ -10,6 +10,13 @@ public class ForrestMenuScript : MonoBehaviour {
 
     public GameObject activeMenu;
 
+    void Start()
+    {
+        activeMenu.SetActive(false);
+        ForrestCollision = false;
+        Time.timeScale = 1f;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +51,7 @@ public class ForrestMenuScript : MonoBehaviour {
     public void Quit()
     {
         GameIsPaused = true;
+        Datamanager.playerPosition = new Vector3(-4.5f, 2, 0);
         SceneManager.LoadScene("Start Menu");
     }
 }

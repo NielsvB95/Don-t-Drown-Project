@@ -8,20 +8,16 @@ public class Datamanager : MonoBehaviour {
     public static Datamanager instance;
     public GameObject Player;
     public GameObject Camera;
-    public Vector3 playerPosition;
+    public static Vector3 playerPosition;
     public Vector3 cameraPosition;
     
     private static string playerPositionKeyY = "PLAYER_POSITIONY";
     private static string playerPositionKeyX = "PLAYER_POSITIONX";
-    private static string cameraPositionKeyY = "CAMERA_POSITIONY";
-    private static string cameraPositionKeyX = "CAMERA_POSITIONX";
-    private static string cameraPositionKeyZ = "CAMERA_POSITIONZ";
-
+    
     /// <summary>Saves playerName, playerScore and 
     /// playerHealth to the PlayerPrefs file.</summary>
     public void SavePlayerPosition()
     {
-        playerPosition = Player.transform.position;
         // Set the values to the PlayerPrefs file using their corresponding keys.
         PlayerPrefs.SetFloat(playerPositionKeyY, playerPosition.y);
         PlayerPrefs.SetFloat(playerPositionKeyX, playerPosition.x);
@@ -31,15 +27,7 @@ public class Datamanager : MonoBehaviour {
         Debug.Log(playerPosition);
     }
 
-    public void SaveCameraPostion()
-    {
-        PlayerPrefs.SetFloat(cameraPositionKeyX, cameraPosition.x);
-        PlayerPrefs.SetFloat(cameraPositionKeyY, cameraPosition.y);
-        PlayerPrefs.SetFloat(cameraPositionKeyZ, cameraPosition.z);
-
-        PlayerPrefs.Save();
-        Debug.Log(cameraPosition);
-    }
+   
 
     /// <summary>Saves playerName, playerScore and playerHealth 
     // from the PlayerPrefs file.</summary>
@@ -52,15 +40,5 @@ public class Datamanager : MonoBehaviour {
             return playerPosition;
         }
         return playerPosition = new Vector3(0, 0, 0);
-    }
-
-    public Vector3 LoadCameraPosition()
-    {
-        if (PlayerPrefs.HasKey(cameraPositionKeyX) && PlayerPrefs.HasKey(cameraPositionKeyY) && PlayerPrefs.HasKey(cameraPositionKeyZ))
-        {
-            cameraPosition = new Vector3(PlayerPrefs.GetFloat(cameraPositionKeyX), PlayerPrefs.GetFloat(cameraPositionKeyY), PlayerPrefs.GetFloat(cameraPositionKeyZ));
-            return cameraPosition;
-        }
-        return cameraPosition = new Vector3(0, 0, -1);
     }
 }

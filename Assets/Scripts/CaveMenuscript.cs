@@ -50,9 +50,8 @@ public class CaveMenuscript : MonoBehaviour {
 
     public void Quit()
     {
-        activeMenu.SetActive(false);
-        CaveCollision = false;
-        Time.timeScale = 1f;
+        GameIsPaused = true;
+        Datamanager.playerPosition = new Vector3(5, -2, 0);
         SceneManager.LoadScene("Start Menu");
     }
 }
