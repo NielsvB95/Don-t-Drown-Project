@@ -665,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0dddda3caf7425488df85a65246ba05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartQuizButton: {fileID: 1682395581}
   activeMenu: {fileID: 1502239276}
 --- !u!1 &278258144
 GameObject:
@@ -804,7 +805,7 @@ RectTransform:
   m_Children:
   - {fileID: 702890939}
   m_Father: {fileID: 1502239277}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2260,8 +2261,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 127805916}
-  - {fileID: 333843395}
   - {fileID: 1682395582}
+  - {fileID: 333843395}
   m_Father: {fileID: 231365028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2607,7 +2608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682395582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2620,7 +2621,7 @@ RectTransform:
   m_Children:
   - {fileID: 1548293306}
   m_Father: {fileID: 1502239277}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

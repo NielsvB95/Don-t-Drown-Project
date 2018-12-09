@@ -7,6 +7,7 @@ public class ForrestMenuScript : MonoBehaviour {
 
     public static bool GameIsPaused = false;
     public static bool ForrestCollision = false;
+    public GameObject StartQuizButton;
 
     public GameObject activeMenu;
 
@@ -18,8 +19,9 @@ public class ForrestMenuScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        checkAxe();
         if (ForrestCollision)
         {
             if (!GameIsPaused)
@@ -52,6 +54,14 @@ public class ForrestMenuScript : MonoBehaviour {
     {
         GameIsPaused = true;
         Datamanager.playerPosition = new Vector3(-4.5f, 2, 0);
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("Quiz");
+    }
+
+    public void checkAxe()
+    {
+        if (Player_Movement.hasAxe)
+        {
+            StartQuizButton.SetActive(true);
+        }
     }
 }
