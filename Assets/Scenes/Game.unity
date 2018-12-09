@@ -362,7 +362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Forrest Menu
+  m_Text: Bos
 --- !u!222 &127805918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 333843397}
   - component: {fileID: 333843396}
   m_Layer: 5
-  m_Name: ResumeButton
+  m_Name: Go back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 105}
+  m_AnchoredPosition: {x: 0, y: -76}
   m_SizeDelta: {x: 286.4, y: 94.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333843396
@@ -1166,7 +1166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1989782441}
-  Camera: {fileID: 519420028}
   cameraPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &702890938
 GameObject:
@@ -1235,7 +1234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: Ga terug
 --- !u!222 &702890941
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2510,7 +2509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Start quiz
 --- !u!222 &1548293308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2603,7 +2602,7 @@ GameObject:
   - component: {fileID: 1682395584}
   - component: {fileID: 1682395583}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: Start quiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2625,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -76}
+  m_AnchoredPosition: {x: 0, y: 113}
   m_SizeDelta: {x: 286.4, y: 94.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682395583

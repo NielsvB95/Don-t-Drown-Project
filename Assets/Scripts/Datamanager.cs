@@ -7,7 +7,6 @@ public class Datamanager : MonoBehaviour {
     /// <summary>Static reference to the instance of our DataManager</summary>
     public static Datamanager instance;
     public GameObject Player;
-    public GameObject Camera;
     public static Vector3 playerPosition;
     public Vector3 cameraPosition;
 
