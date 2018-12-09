@@ -10,7 +10,7 @@ public class Datamanager : MonoBehaviour {
     public GameObject Camera;
     public static Vector3 playerPosition;
     public Vector3 cameraPosition;
-    
+
     private static string playerPositionKeyY = "PLAYER_POSITIONY";
     private static string playerPositionKeyX = "PLAYER_POSITIONX";
     
@@ -26,8 +26,6 @@ public class Datamanager : MonoBehaviour {
         PlayerPrefs.Save();
         Debug.Log(playerPosition);
     }
-
-   
 
     /// <summary>Saves playerName, playerScore and playerHealth 
     // from the PlayerPrefs file.</summary>

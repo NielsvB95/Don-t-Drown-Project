@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour {
 
-	// Use this for initialization
-	public void StartGame () {
+    public GameObject AxeButton;
+
+    void Start()
+    {
+        checkAxe();
+    }
+
+    // Use this for initialization
+    public void StartGame () {
         SceneManager.LoadScene("Game");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    public void checkAxe()
+    {
+        if (Player_Movement.hasAxe)
+        {
+            AxeButton.SetActive(true);
+        }
+    }
 }
