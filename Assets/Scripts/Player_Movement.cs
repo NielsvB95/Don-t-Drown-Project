@@ -6,6 +6,8 @@ public class Player_Movement : MonoBehaviour {
 
     public float moveSpeed = 2f;
     public static bool hasAxe = false;
+    public static bool hasPickaxe = false;
+    public static bool hasPitchfork = false;
     // Use this for initialization
     void Start () {
         Datamanager dataManager = new Datamanager();

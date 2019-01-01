@@ -7,6 +7,7 @@ public class CaveMenuscript : MonoBehaviour {
 
     public static bool GameIsPaused = false;
     public static bool CaveCollision = false;
+    public GameObject StartQuizButton;
 
     public GameObject activeMenu;
 
@@ -18,8 +19,9 @@ public class CaveMenuscript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        checkPickaxe();
         if (CaveCollision)
         {
             if (!GameIsPaused)
@@ -52,6 +54,14 @@ public class CaveMenuscript : MonoBehaviour {
     {
         GameIsPaused = true;
         Datamanager.playerPosition = new Vector3(5, -2, 0);
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("Quiz");
+    }
+
+    public void checkPickaxe()
+    {
+        if (Player_Movement.hasPickaxe)
+        {
+            StartQuizButton.SetActive(true);
+        }
     }
 }

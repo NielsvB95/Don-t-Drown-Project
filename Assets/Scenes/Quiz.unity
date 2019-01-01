@@ -529,32 +529,116 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allRoundData:
   - name: Round Zero
-    timeLimitInSeconds: 30
+    timeLimitInSeconds: 180
     pointsAddedForCorrectAnswer: 10
     questions:
-    - questionText: Wat is het kookpunt van water?
+    - questionText: Hoeveel deeltjes zitten er in het deeltjesmodel?
       answers:
-      - answerText: "100\xB0C"
+      - answerText: oneindig
         isCorrect: 1
-      - answerText: "90\xB0C"
+      - answerText: geen
         isCorrect: 0
-    - questionText: Wat is het kookpunt van ethanol?
+      - answerText: 3
+        isCorrect: 0
+      - answerText: 100
+        isCorrect: 0
+      - answerText: meer dan je je kunt voorstellen
+        isCorrect: 0
+      - answerText: 1000
+        isCorrect: 0
+      - answerText: 888
+        isCorrect: 0
+      - answerText: een miljoen
+        isCorrect: 0
+    - questionText: Hoe heet de overgang van vast naar vloeibaar?
       answers:
-      - answerText: "83,12 \xB0C"
+      - answerText: stollen
         isCorrect: 0
-      - answerText: "78,37 \xB0C"
+      - answerText: condenseren
+        isCorrect: 0
+      - answerText: subliemeren
+        isCorrect: 0
+      - answerText: vervluchtigen
+        isCorrect: 0
+      - answerText: rijpen
+        isCorrect: 0
+      - answerText: smelten
         isCorrect: 1
-      - answerText: "81,38 \xB0C"
+      - answerText: verdampen
         isCorrect: 0
-    - questionText: Wat is C6H12O6?
+      - answerText: faseverandering
+        isCorrect: 0
+    - questionText: Wat 'is' temperatuur?
       answers:
-      - answerText: Glucose
+      - answerText: hoe energie overgedragen wordt
+        isCorrect: 0
+      - answerText: de warmte van een stofl
+        isCorrect: 0
+      - answerText: de gemiddelde bewegingssnelheid van de moleculen
         isCorrect: 1
-      - answerText: Glycerol
+      - answerText: de mate van Celsius
         isCorrect: 0
-      - answerText: Saccharose
+      - answerText: de bepaling van de fase van een stof
         isCorrect: 0
-      - answerText: Ethanol
+      - answerText: wanneer iets warm of koud aanvoelt
+        isCorrect: 0
+      - answerText: de verbrandingswarmte
+        isCorrect: 0
+      - answerText: de verbrandingstemperatuur
+        isCorrect: 0
+    - questionText: "Bij een vaste stof \u2026"
+      answers:
+      - answerText: "\u2026 rijpen deeltjes makkelijker"
+        isCorrect: 1
+      - answerText: "\u2026 voelt alles koud aan"
+        isCorrect: 0
+      - answerText: "\u2026 daalt de temperatuur"
+        isCorrect: 0
+      - answerText: "\u2026 onstaan kristallenl"
+        isCorrect: 0
+      - answerText: "\u2026 kunnen de deeltjes vrij bewegenl"
+        isCorrect: 0
+      - answerText: "\u2026 zit er veel ruimte tussen de deeltjes"
+        isCorrect: 0
+      - answerText: "\u2026 bewegen de deeltjes heel snel"
+        isCorrect: 0
+      - answerText: "\u2026 zitten de deeltjes dicht op elkaar"
+        isCorrect: 1
+    - questionText: "Waterdamp \u2026"
+      answers:
+      - answerText: "\u2026 wordt zichbaar in wolken"
+        isCorrect: 0
+      - answerText: "\u2026 wordt zichtbaar als stoom"
+        isCorrect: 0
+      - answerText: "\u2026 zie je nooit"
+        isCorrect: 1
+      - answerText: "\u2026 wordt zichtbaar als mist"
+        isCorrect: 0
+      - answerText: "\u2026 bestaat niet"
+        isCorrect: 0
+      - answerText: "\u2026 zorgt voor ijzel"
+        isCorrect: 0
+      - answerText: "\u2026 is giftig"
+        isCorrect: 0
+      - answerText: "\u2026 vervluchtigt makkelijk"
+        isCorrect: 0
+    - questionText: Wat bepaald de fase van een stof?
+      answers:
+      - answerText: de omgeving
+        isCorrect: 0
+      - answerText: de warmte
+        isCorrect: 0
+      - answerText: de druk
+        isCorrect: 0
+      - answerText: de temperatuur
+        isCorrect: 0
+      - answerText: De temperatuur en de druk
+        isCorrect: 1
+      - answerText: de deeltjes
+        isCorrect: 0
+      - answerText: het smeltpunt
+        isCorrect: 0
+      - answerText: de stofeigenschappen
         isCorrect: 0
 --- !u!4 &414626475
 Transform:

@@ -27,6 +27,7 @@ public class QuizController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1f;
         dataController = FindObjectOfType<DataController>();
         currentRoundData = dataController.GetCurrentRoundData();
         questionPool = currentRoundData.questions;

@@ -7,6 +7,7 @@ public class SwampMenuScript : MonoBehaviour {
 
     public static bool GameIsPaused = false;
     public static bool SwampCollision = false;
+    public GameObject StartQuizButton;
 
     public GameObject activeMenu;
 
@@ -18,10 +19,11 @@ public class SwampMenuScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (SwampCollision)
         {
+            checkPitchfork();
             if (!GameIsPaused)
             {
                 PauseSwamp();
@@ -52,6 +54,14 @@ public class SwampMenuScript : MonoBehaviour {
     {
         GameIsPaused = true;
         Datamanager.playerPosition = new Vector3(-4.5f, -2, 0);
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("Quiz");
+    }
+
+    public void checkPitchfork()
+    {
+        if (Player_Movement.hasPitchfork)
+        {
+            StartQuizButton.SetActive(true);
+        }
     }
 }
