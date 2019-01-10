@@ -11,12 +11,15 @@ public class Player_Movement : MonoBehaviour {
     public static bool hasPitchfork = false;
     // Use this for initialization
     void Start () {
-        Debug.Log(SceneManager.GetSceneByName(SceneManager.GetActiveScene().ToString()));
-        if (SceneManager.GetActiveScene().ToString().Equals("Game"))
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+
+        if ( sceneName == "Game")
         {
             Datamanager dataManager = new Datamanager();
             transform.position = dataManager.LoadPlayer();
-            Debug.Log("DataManager is called");
         }
 	}
 	
