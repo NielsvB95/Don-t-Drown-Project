@@ -16,6 +16,7 @@ public class Player_Movement : MonoBehaviour {
         // Retrieve the name of this scene.
         string sceneName = currentScene.name;
 
+        Time.timeScale = 1f;
         if ( sceneName == "Game")
         {
             Datamanager dataManager = new Datamanager();

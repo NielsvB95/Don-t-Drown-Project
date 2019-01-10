@@ -54,7 +54,7 @@ public class ForrestMenuScript : MonoBehaviour {
     {
         GameIsPaused = true;
         Datamanager.playerPosition = new Vector3(-4.5f, 2, 0);
-        SceneManager.LoadScene("Quiz");
+        SceneManager.LoadScene("Forrest");
     }
 
     public void checkAxe()
