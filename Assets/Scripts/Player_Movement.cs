@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -10,8 +11,13 @@ public class Player_Movement : MonoBehaviour {
     public static bool hasPitchfork = false;
     // Use this for initialization
     void Start () {
-        Datamanager dataManager = new Datamanager();
-        transform.position = dataManager.LoadPlayer();
+        Debug.Log(SceneManager.GetSceneByName(SceneManager.GetActiveScene().ToString()));
+        if (SceneManager.GetActiveScene().ToString().Equals("Game"))
+        {
+            Datamanager dataManager = new Datamanager();
+            transform.position = dataManager.LoadPlayer();
+            Debug.Log("DataManager is called");
+        }
 	}
 	
 	// Update is called once per frame
