@@ -9,6 +9,9 @@ public class CraftingMenu : MonoBehaviour {
     public static bool GameIsPaused = true;
     public static bool WorkBench = false;
 
+    public GameObject activeMenu;
+    public GameObject otherMenu;
+
     private int AxeAmountInt_1 = 4;
     private int AxeAmountInt_2 = 2;
     private int PitchforkAmountInt_1 = 3;
@@ -16,8 +19,6 @@ public class CraftingMenu : MonoBehaviour {
     private int PickaxeAmountInt_1 = 4;
     private int PickaxeAmountInt_2 = 3;
 
-    public GameObject activeMenu;
-    public GameObject otherMenu;
     public Text AxeAmount_1;
     public Text AxeAmount_2;
     public Text PitchforkAmount_1;
@@ -53,7 +54,6 @@ public class CraftingMenu : MonoBehaviour {
                 Resume();
                 WorkBench = false;
                 GameIsPaused = true;
-                Debug.Log("Else statement craftingMenu WorkBench:" + WorkBench + GameIsPaused);
             }
         }
     }
@@ -63,7 +63,6 @@ public class CraftingMenu : MonoBehaviour {
         activeMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Debug.Log("Resume CraftingMenu is called");
     }
 
     void PauseCrafting()
@@ -80,16 +79,25 @@ public class CraftingMenu : MonoBehaviour {
 
     public void checkAxeMaterials()
     {
-
+        if(Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Axe == false)
+        {
+            Inventory.Axe = true;
+        }
     }
 
     public void checkPickAxeMaterial()
     {
-
+        if (Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Pitchfork == false)
+        {
+            Inventory.Pitchfork = true;
+        }
     }
 
     public void checkPitchforkMaterials()
     {
-
+        if (Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Pickaxe == false)
+        {
+            Inventory.Pickaxe = true;
+        }
     }
 }
