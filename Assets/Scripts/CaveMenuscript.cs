@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CaveMenuscript : MonoBehaviour {
 
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = true;
     public static bool CaveCollision = false;
     public GameObject StartQuizButton;
 
@@ -24,14 +24,14 @@ public class CaveMenuscript : MonoBehaviour {
         checkPickaxe();
         if (CaveCollision)
         {
-            if (!GameIsPaused)
+            if (GameIsPaused)
             {
                 PauseCave();
             }
             else
             {
                 Resume();
-                GameIsPaused = false;
+                GameIsPaused = true;
                 CaveCollision = false;
             }
         }
@@ -41,7 +41,7 @@ public class CaveMenuscript : MonoBehaviour {
     {
         activeMenu.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = true;
+        GameIsPaused = false;
     }
 
     void PauseCave()

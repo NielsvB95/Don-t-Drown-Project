@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SwampMenuScript : MonoBehaviour {
 
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = true;
     public static bool SwampCollision = false;
     public GameObject StartQuizButton;
 
@@ -24,14 +24,14 @@ public class SwampMenuScript : MonoBehaviour {
         if (SwampCollision)
         {
             checkPitchfork();
-            if (!GameIsPaused)
+            if (GameIsPaused)
             {
                 PauseSwamp();
             }
             else
             {
                 Resume();
-                GameIsPaused = false;
+                GameIsPaused = true;
                 SwampCollision = false;
             }
         }
@@ -41,7 +41,7 @@ public class SwampMenuScript : MonoBehaviour {
     {
         activeMenu.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = true;
+        GameIsPaused = false;
     }
 
     void PauseSwamp()

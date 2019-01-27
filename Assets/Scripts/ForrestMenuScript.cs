@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ForrestMenuScript : MonoBehaviour {
 
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = true;
     public static bool ForrestCollision = false;
     public GameObject StartQuizButton;
 
@@ -24,14 +24,14 @@ public class ForrestMenuScript : MonoBehaviour {
         checkAxe();
         if (ForrestCollision)
         {
-            if (!GameIsPaused)
+            if (GameIsPaused)
             {
                 PauseForrest();
             }
             else
             {
                 Resume();
-                GameIsPaused = false;
+                GameIsPaused = true;
                 ForrestCollision = false;
             }
         }
@@ -41,7 +41,7 @@ public class ForrestMenuScript : MonoBehaviour {
     {
         activeMenu.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = true;
+        GameIsPaused = false;
     }
 
     void PauseForrest()
