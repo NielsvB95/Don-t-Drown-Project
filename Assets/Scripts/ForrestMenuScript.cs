@@ -21,7 +21,6 @@ public class ForrestMenuScript : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        checkAxe();
         if (ForrestCollision)
         {
             if (GameIsPaused)
@@ -57,11 +56,11 @@ public class ForrestMenuScript : MonoBehaviour {
         SceneManager.LoadScene("Forrest");
     }
 
-    public void checkAxe()
-    {
-        if (Player_Movement.hasAxe)
-        {
-            StartQuizButton.SetActive(true);
-        }
-    }
+    //public void checkAxe()
+    //{
+    //    if (Player_Movement.hasAxe)
+    //    {
+    //        StartQuizButton.SetActive(true);
+    //    }
+    //}
 }

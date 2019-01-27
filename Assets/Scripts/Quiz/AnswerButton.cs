@@ -7,23 +7,23 @@ public class AnswerButton : MonoBehaviour {
     public Text answerText;
 
     private AnswerData answerData;
-    private QuizController gameController;
+    private QuestionController questionController;
 
     // Use this for initialization
     void Start()
     {
-        gameController = FindObjectOfType<QuizController>();
+        questionController = FindObjectOfType<QuestionController>();
     }
 
     public void Setup(AnswerData data)
     {
         answerData = data;
-        answerText.text = answerData.answerText;
+        answerText.text = answerData.waarde;
     }
 
 
     public void HandleClick()
     {
-        gameController.AnswerButtonClicked(answerData.isCorrect);
+        questionController.AnswerButtonClicked(answerData.correctness);
     }
 }

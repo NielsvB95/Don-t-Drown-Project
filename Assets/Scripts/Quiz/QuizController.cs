@@ -2,98 +2,34 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
-public class QuizController : MonoBehaviour {
+public class QuizController : MonoBehaviour
+{
 
-    public Text questionDisplayText;
-    public Text scoreDisplayText;
     public Text timeRemainingDisplayText;
-    public SimpleObjectPool answerButtonObjectPool;
-    public Transform answerButtonParent;
+    public GameObject quizEndDisplay;
+    public float timeLimit;
     public GameObject questionDisplay;
-    public GameObject roundEndDisplay;
 
-    private DataController dataController;
-    private RoundData currentRoundData;
-    private QuestionData[] questionPool;
-
-    private bool isRoundActive;
+    private bool isQuizActive;
     private float timeRemaining;
-    private int questionIndex;
-    private int playerScore;
-    private List<GameObject> answerButtonGameObjects = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
         Time.timeScale = 1f;
-        dataController = FindObjectOfType<DataController>();
-        currentRoundData = dataController.GetCurrentRoundData();
-        questionPool = currentRoundData.questions;
-        timeRemaining = currentRoundData.timeLimitInSeconds;
+        
+        timeRemaining = timeLimit;
         UpdateTimeRemainingDisplay();
-
-        playerScore = 0;
-        questionIndex = 0;
-
-        ShowQuestion();
-        isRoundActive = true;
+        isQuizActive = true;
 
     }
 
-    private void ShowQuestion()
+    public void EndQuiz()
     {
-        RemoveAnswerButtons();
-        QuestionData questionData = questionPool[questionIndex];
-        questionDisplayText.text = questionData.questionText;
-
-        for (int i = 0; i < questionData.answers.Length; i++)
-        {
-            GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
-            answerButtonGameObjects.Add(answerButtonGameObject);
-            answerButtonGameObject.transform.SetParent(answerButtonParent);
-
-            AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
-            answerButton.Setup(questionData.answers[i]);
-        }
-    }
-
-    private void RemoveAnswerButtons()
-    {
-        while (answerButtonGameObjects.Count > 0)
-        {
-            answerButtonObjectPool.ReturnObject(answerButtonGameObjects[0]);
-            answerButtonGameObjects.RemoveAt(0);
-        }
-    }
-
-    public void AnswerButtonClicked(bool isCorrect)
-    {
-        if (isCorrect)
-        {
-            playerScore += currentRoundData.pointsAddedForCorrectAnswer;
-            scoreDisplayText.text = "Score: " + playerScore.ToString();
-        }
-
-        if (questionPool.Length > questionIndex + 1)
-        {
-            questionIndex++;
-            ShowQuestion();
-        }
-        else
-        {
-            EndRound();
-        }
-
-    }
-
-    public void EndRound()
-    {
-        isRoundActive = false;
-
+        isQuizActive = false;
         questionDisplay.SetActive(false);
-        roundEndDisplay.SetActive(true);
+        quizEndDisplay.SetActive(true);
     }
 
     public void ReturnToGame()
@@ -109,14 +45,14 @@ public class QuizController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (isRoundActive)
+        if (isQuizActive)
         {
             timeRemaining -= Time.deltaTime;
             UpdateTimeRemainingDisplay();
 
             if (timeRemaining <= 0f)
             {
-                EndRound();
+                EndQuiz();
             }
 
         }

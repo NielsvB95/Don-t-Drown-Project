@@ -4,6 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class AnswerData {
-    public string answerText;
-    public bool isCorrect;
+    public int id;
+    public string waarde;
+    public int correctness;
 }
