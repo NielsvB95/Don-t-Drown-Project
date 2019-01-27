@@ -10,6 +10,7 @@ public class QuizController : MonoBehaviour
     public GameObject quizEndDisplay;
     public float timeLimit;
     public GameObject questionDisplay;
+    public GameObject missingToolPanel;
 
     private bool isQuizActive;
     private float timeRemaining;
@@ -35,6 +36,12 @@ public class QuizController : MonoBehaviour
     public void ReturnToGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void CloseMissingToolPanel()
+    {
+        missingToolPanel.SetActive(false);
+        GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
     }
 
     private void UpdateTimeRemainingDisplay()

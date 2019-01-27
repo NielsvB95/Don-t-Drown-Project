@@ -9,6 +9,8 @@ public class QuestionController : MonoBehaviour
     public SimpleObjectPool answerButtonObjectPool;
     public Transform answerButtonParent;
     public GameObject questionDisplay;
+    public GameObject answerResultPanel;
+    public Text answerResultText;
 
     public DataController dataController;
     private QuestionData questionData;
@@ -63,13 +65,26 @@ public class QuestionController : MonoBehaviour
         {
             playerScore++;
             Destroy(questionTrigger);
+            answerResultText.text = "Antwoord is goed.";
+            answerResultPanel.GetComponent<Image>().color = UnityEngine.Color.green;
             questionDisplay.SetActive(false);
+            answerResultPanel.SetActive(true);
         }
         else
         {
+            answerResultText.text = "Antwoord is fout.";
+            answerResultPanel.GetComponent<Image>().color = UnityEngine.Color.red;
             questionDisplay.SetActive(false);
+            answerResultPanel.SetActive(true);
         }
 
+
+    }
+
+    public void CloseAnswerResultPanel()
+    {
+        answerResultPanel.SetActive(false);
+        GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
     }
 
 
