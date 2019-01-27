@@ -10,6 +10,10 @@ public class InventoryMenu : MonoBehaviour {
 
     public GameObject activeMenu;
 
+    public GameObject AxeCheck;
+    public GameObject PitchforkCheck;
+    public GameObject PickaxeCheck;
+
     private int Stick = Inventory.Stick;
     private int Wood = Inventory.Wood;
     private int Straw = Inventory.Straw;
@@ -38,6 +42,21 @@ public class InventoryMenu : MonoBehaviour {
         Iron_Amount.text = Iron + "x";
         Flower_Amount.text = Flower + "x";
         Mushroom_Amount.text = Mushroom + "x";
+
+        if(Inventory.Axe)
+        {
+            AxeCheck.SetActive(false);
+        }
+
+        if (Inventory.Pitchfork)
+        {
+            PitchforkCheck.SetActive(false);
+        }
+
+        if (Inventory.Pickaxe)
+        {
+            PickaxeCheck.SetActive(false);
+        }
     }
 
     // Update is called once per frame
