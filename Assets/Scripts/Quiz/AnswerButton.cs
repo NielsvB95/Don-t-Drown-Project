@@ -18,12 +18,12 @@ public class AnswerButton : MonoBehaviour {
     public void Setup(AnswerData data)
     {
         answerData = data;
-        answerText.text = answerData.waarde;
+        answerText.text = answerData.Waarde;
     }
 
 
     public void HandleClick()
     {
-        questionController.AnswerButtonClicked(answerData.correctness);
+        questionController.AnswerButtonClicked(answerData.Correctness);
     }
 }

@@ -35,16 +35,16 @@ public class QuestionController : MonoBehaviour
         questionTrigger = gameObject;
         RemoveAnswerButtons();
         questionData = dataController.GetQuestionData();
-        questionDisplayText.text = questionData.vraag;
+        questionDisplayText.text = questionData.Vraag;
 
-        for (int i = 0; i < questionData.antwoorden.Length; i++)
+        for (int i = 0; i < questionData.Antwoorden.Length; i++)
         {
             GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
             answerButtonGameObjects.Add(answerButtonGameObject);
             answerButtonGameObject.transform.SetParent(answerButtonParent);
 
             AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
-            answerButton.Setup(questionData.antwoorden[i]);
+            answerButton.Setup(questionData.Antwoorden[i]);
         }
 
         questionDisplay.SetActive(true);
