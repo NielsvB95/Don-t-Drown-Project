@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-    public static int wood, clay, stone, iron, straw, stick, mushroom, flower;
+    public static int wood, clay, stone, pebble, iron, straw, stick, mushroom, flower, gemstone, strengthPotion, constitutionPotion, intelligencePotion, wisdomPotion;
     public static bool axe, pitchfork, pickaxe;
 
     public static int Wood
@@ -40,6 +40,18 @@ public class Inventory : MonoBehaviour {
         set
         {
             stone = value;
+        }
+    }
+
+    public static int Pebble
+    {
+        get
+        {
+            return pebble;
+        }
+        set
+        {
+            pebble = value;
         }
     }
 
@@ -100,6 +112,66 @@ public class Inventory : MonoBehaviour {
         set
         {
             mushroom = value;
+        }
+    }
+
+    public static int Gemstone
+    {
+        get
+        {
+            return gemstone;
+        }
+        set
+        {
+            gemstone = value;
+        }
+    }
+
+    public static int StrengthPotion
+    {
+        get
+        {
+            return strengthPotion;
+        }
+        set
+        {
+            strengthPotion = value;
+        }
+    }
+
+    public static int ConstitutionPotion
+    {
+        get
+        {
+            return constitutionPotion;
+        }
+        set
+        {
+            constitutionPotion = value;
+        }
+    }
+
+    public static int IntelligencePotion
+    {
+        get
+        {
+            return intelligencePotion;
+        }
+        set
+        {
+            intelligencePotion = value;
+        }
+    }
+
+    public static int WisdomPotion
+    {
+        get
+        {
+            return wisdomPotion;
+        }
+        set
+        {
+            wisdomPotion = value;
         }
     }
 

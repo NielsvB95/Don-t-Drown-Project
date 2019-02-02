@@ -5,19 +5,43 @@ using UnityEngine.UI;
 
 public class OtherMaterialsMenu : MonoBehaviour {
 
-    private int PotionAmountInt_1 = 3;
-    private int PotionAmountInt_2 = 3;
-
     public GameObject activeMenu;
     public GameObject otherMenu;
-    public Text PotionAmount_1;
-    public Text PotionAmount_2;
-   
+
+    private int StrengthAmountInt_1 = 1;
+    private int StrengthAmountInt_2 = 1;
+    private int StrengthAmountInt_3 = 1;
+
+    private int ConstitutionAmountInt_1 = 2;
+
+    private int IntelligenceAmountInt_1 = 2;
+    private int IntelligenceAmountInt_2 = 1;
+
+    private int WisdomAmountInt_1 = 2;
+
+    public Text StrengthAmount_1;
+    public Text StrengthAmount_2;
+    public Text StrengthAmount_3;
+
+    public Text ConstitutionAmount_1;
+
+    public Text IntelligenceAmount_1;
+    public Text IntelligenceAmount_2;
+
+    public Text WisdomAmount_1;
 
     void Start()
     {
-        PotionAmount_1.text = PotionAmountInt_1 + "x";
-        PotionAmount_2.text = PotionAmountInt_2 + "x";
+        StrengthAmount_1.text = StrengthAmountInt_1 + "x";
+        StrengthAmount_2.text = StrengthAmountInt_2 + "x";
+        StrengthAmount_3.text = StrengthAmountInt_3 + "x";
+
+        ConstitutionAmount_1.text = ConstitutionAmountInt_1 + "x";
+
+        IntelligenceAmount_1.text = IntelligenceAmountInt_1 + "x";
+        IntelligenceAmount_2.text = IntelligenceAmountInt_2 + "x";
+
+        WisdomAmount_1.text = WisdomAmountInt_1 + "x";
     }
 
     // Update is called once per frame
@@ -36,8 +60,41 @@ public class OtherMaterialsMenu : MonoBehaviour {
         otherMenu.SetActive(true);
     }
 
-    public void checkPotionMaterials()
+    public void checkStrengthPotionMaterials()
     {
+        if (Inventory.Flower == StrengthAmountInt_1 && Inventory.Mushroom == StrengthAmountInt_2 && Inventory.Gemstone == StrengthAmountInt_3)
+        {
+            Inventory.StrengthPotion += 1;
+            Inventory.Flower -= StrengthAmountInt_1;
+            Inventory.Mushroom -= StrengthAmountInt_2;
+            Inventory.Gemstone -= StrengthAmountInt_3;
+        }
+    }
+    public void checkConstitutionPotionMaterials()
+    {
+        if(Inventory.Flower == ConstitutionAmountInt_1)
+        {
+            Inventory.ConstitutionPotion += 1;
+            Inventory.Flower -= ConstitutionAmountInt_1;
+        }
+    }
 
+    public void checkIntelligencePotionMaterials()
+    {
+        if (Inventory.Mushroom == IntelligenceAmountInt_1 && Inventory.Flower == IntelligenceAmountInt_2)
+        {
+            Inventory.IntelligencePotion += 1;
+            Inventory.Mushroom -= IntelligenceAmountInt_1;
+            Inventory.Flower -= IntelligenceAmountInt_2;
+        }
+    }
+
+    public void checkWisdomPotionMaterials()
+    {
+        if (Inventory.Gemstone == WisdomAmountInt_1)
+        {
+            Inventory.WisdomPotion += 1;
+            Inventory.Gemstone -= WisdomAmountInt_1;
+        }
     }
 }

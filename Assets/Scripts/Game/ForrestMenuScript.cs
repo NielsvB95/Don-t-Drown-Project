@@ -7,8 +7,6 @@ public class ForrestMenuScript : MonoBehaviour {
 
     public static bool GameIsPaused = true;
     public static bool ForrestCollision = false;
-    public GameObject StartQuizButton;
-
     public GameObject activeMenu;
 
     void Start()
@@ -55,12 +53,4 @@ public class ForrestMenuScript : MonoBehaviour {
         Datamanager.playerPosition = new Vector3(-4.5f, 2, 0);
         SceneManager.LoadScene("Forrest");
     }
-
-    //public void checkAxe()
-    //{
-    //    if (Player_Movement.hasAxe)
-    //    {
-    //        StartQuizButton.SetActive(true);
-    //    }
-    //}
 }
