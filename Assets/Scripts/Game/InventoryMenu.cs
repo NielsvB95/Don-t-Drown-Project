@@ -58,9 +58,13 @@ public class InventoryMenu : MonoBehaviour {
         Flower_Amount.text = Flower + "x";
         Mushroom_Amount.text = Mushroom + "x";
         Gemstone_Amount.text = Gemstone + "x";
+        StrengthPotion_Amount.text = StrengthPotion + "x";
+        ConstitutionPotion_Amount.text = ConstitutionPotion + "x";
+        IntelligencePotion_Amount.text = IntelligencePotion + "x";
+        WisdomPotion_Amount.text = WisdomPotion + "x";
 
 
-        if(Inventory.Axe)
+        if (Inventory.Axe)
         {
             AxeCheck.SetActive(false);
         }
