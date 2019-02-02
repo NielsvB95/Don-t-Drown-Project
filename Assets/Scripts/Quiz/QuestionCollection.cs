@@ -13,7 +13,7 @@ public class QuestionCollection {
         string result = "QUESTIONS\n";
         foreach(var question in questions)
         {
-            result += string.Format("Question: {0}\nAnswer: {1}\n\n", question.questionText, question.answers);
+            result += string.Format("Question: {0}\nAnswer: {1}\n\n", question.Vraag, question.Antwoorden);
         }
         return result;
     }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 [System.Serializable]
 public class QuestionData {
-    public string questionText;
-    public AnswerData[] answers;
+    public int Id;
+    public string Vraag;
+    public int Type;
+    public AnswerData[] Antwoorden;
+    public string Hint;
+    public int MinLevel;
+    public int MaxLevel;
+    public bool Active;
 }

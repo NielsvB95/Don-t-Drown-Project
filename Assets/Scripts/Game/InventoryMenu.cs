@@ -13,7 +13,6 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject AxeCheck;
     public GameObject PitchforkCheck;
     public GameObject PickaxeCheck;
-
     private int Stick = Inventory.Stick;
     private int Wood = Inventory.Wood;
     private int Straw = Inventory.Straw;
@@ -28,7 +27,7 @@ public class InventoryMenu : MonoBehaviour {
     private int ConstitutionPotion = Inventory.ConstitutionPotion;
     private int IntelligencePotion = Inventory.IntelligencePotion;
     private int WisdomPotion = Inventory.WisdomPotion;
-    
+  
     public Text Stick_Amount;
     public Text Wood_Amount;
     public Text Straw_Amount;
@@ -44,7 +43,6 @@ public class InventoryMenu : MonoBehaviour {
     public Text ConstitutionPotion_Amount;
     public Text IntelligencePotion_Amount;
     public Text WisdomPotion_Amount;
-
 
     void Start()
     {

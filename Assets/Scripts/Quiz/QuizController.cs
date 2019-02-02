@@ -1,99 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
-public class QuizController : MonoBehaviour {
-
-    public Text questionDisplayText;
-    public Text scoreDisplayText;
+public class QuizController : MonoBehaviour
+{
     public Text timeRemainingDisplayText;
-    public SimpleObjectPool answerButtonObjectPool;
-    public Transform answerButtonParent;
+    public GameObject quizEndDisplay;
+    public float timeLimit;
     public GameObject questionDisplay;
-    public GameObject roundEndDisplay;
-
-    private DataController dataController;
-    private RoundData currentRoundData;
-    private QuestionData[] questionPool;
-
-    private bool isRoundActive;
+    public GameObject missingToolPanel;
+    public Dictionary<string, int> correctAnswers = new Dictionary<string, int>
+    {
+        {"Stick", 0},
+        {"Wood", 0},
+        {"Stone", 0},
+        {"Clay", 0},
+        {"Iron", 0},
+        {"Straw", 0},
+        {"Mushroom", 0},
+        {"Flower", 0},
+    };
+    private bool isQuizActive;
     private float timeRemaining;
-    private int questionIndex;
-    private int playerScore;
-    private List<GameObject> answerButtonGameObjects = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
         Time.timeScale = 1f;
-        dataController = FindObjectOfType<DataController>();
-        currentRoundData = dataController.GetCurrentRoundData();
-        questionPool = currentRoundData.questions;
-        timeRemaining = currentRoundData.timeLimitInSeconds;
+        timeRemaining = timeLimit;
         UpdateTimeRemainingDisplay();
-
-        playerScore = 0;
-        questionIndex = 0;
-
-        ShowQuestion();
-        isRoundActive = true;
-
+        isQuizActive = true;
     }
 
-    private void ShowQuestion()
+    public void EndQuiz()
     {
-        RemoveAnswerButtons();
-        QuestionData questionData = questionPool[questionIndex];
-        questionDisplayText.text = questionData.questionText;
-
-        for (int i = 0; i < questionData.answers.Length; i++)
-        {
-            GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
-            answerButtonGameObjects.Add(answerButtonGameObject);
-            answerButtonGameObject.transform.SetParent(answerButtonParent);
-
-            AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
-            answerButton.Setup(questionData.answers[i]);
-        }
-    }
-
-    private void RemoveAnswerButtons()
-    {
-        while (answerButtonGameObjects.Count > 0)
-        {
-            answerButtonObjectPool.ReturnObject(answerButtonGameObjects[0]);
-            answerButtonGameObjects.RemoveAt(0);
-        }
-    }
-
-    public void AnswerButtonClicked(bool isCorrect)
-    {
-        if (isCorrect)
-        {
-            playerScore += currentRoundData.pointsAddedForCorrectAnswer;
-            scoreDisplayText.text = "Score: " + playerScore.ToString();
-        }
-
-        if (questionPool.Length > questionIndex + 1)
-        {
-            questionIndex++;
-            ShowQuestion();
-        }
-        else
-        {
-            EndRound();
-        }
-
-    }
-
-    public void EndRound()
-    {
-        isRoundActive = false;
-
+        isQuizActive = false;
+        AwardResources();
         questionDisplay.SetActive(false);
-        roundEndDisplay.SetActive(true);
+        quizEndDisplay.SetActive(true);
     }
 
     public void ReturnToGame()
@@ -101,22 +47,64 @@ public class QuizController : MonoBehaviour {
         SceneManager.LoadScene("Game");
     }
 
+    public void CloseMissingToolPanel()
+    {
+        missingToolPanel.SetActive(false);
+        GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
+    }
+
     private void UpdateTimeRemainingDisplay()
     {
         timeRemainingDisplayText.text = "Tijd: " + Mathf.Round(timeRemaining).ToString();
     }
 
+    private void AwardResources()
+    {
+        if (correctAnswers["Stick"] >= 3)
+        {
+            Inventory.Stick++;
+        }
+        if (correctAnswers["Wood"] >= 3)
+        {
+            Inventory.Wood++;
+        }
+        if (correctAnswers["Stone"] >= 3)
+        {
+            Inventory.Stone++;
+        }
+        if (correctAnswers["Clay"] >= 3)
+        {
+            Inventory.Clay++;
+        }
+        if (correctAnswers["Iron"] >= 3)
+        {
+            Inventory.Iron++;
+        }
+        if (correctAnswers["Straw"] >= 3)
+        {
+            Inventory.Straw++;
+        }
+        if (correctAnswers["Mushroom"] >= 1)
+        {
+            Inventory.Mushroom++;
+        }
+        if (correctAnswers["Flower"] >= 3)
+        {
+            Inventory.Flower++;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (isRoundActive)
+        if (isQuizActive)
         {
             timeRemaining -= Time.deltaTime;
             UpdateTimeRemainingDisplay();
 
             if (timeRemaining <= 0f)
             {
-                EndRound();
+                EndQuiz();
             }
 
         }

@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Net;
 
-public class DataController : MonoBehaviour{
-    public RoundData[] allRoundData;
+public class DataController : MonoBehaviour
+{
+    private QuizData[] allQuizData = GameData.AllQuizData;
+    private System.Random rnd = new System.Random();
 
-    public RoundData GetCurrentRoundData()
+    public QuestionData GetQuestionData()
     {
-        return allRoundData[0];
+        int questionCount = allQuizData[0].vragen.Length;
+        int questionId = rnd.Next(0, questionCount);
+        QuestionData questionData = allQuizData[0].vragen[questionId];
+        return questionData;
     }
-
 }
