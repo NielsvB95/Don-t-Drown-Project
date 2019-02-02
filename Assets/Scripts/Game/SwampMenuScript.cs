@@ -23,7 +23,6 @@ public class SwampMenuScript : MonoBehaviour {
     {
         if (SwampCollision)
         {
-            checkPitchfork();
             if (GameIsPaused)
             {
                 PauseSwamp();
@@ -54,14 +53,6 @@ public class SwampMenuScript : MonoBehaviour {
     {
         GameIsPaused = true;
         Datamanager.playerPosition = new Vector3(-4.5f, -2, 0);
-        SceneManager.LoadScene("Quiz");
-    }
-
-    public void checkPitchfork()
-    {
-        if (Player_Movement.hasPitchfork)
-        {
-            StartQuizButton.SetActive(true);
-        }
+        SceneManager.LoadScene("Meadow");
     }
 }
