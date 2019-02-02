@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerQuestion : MonoBehaviour
+public class QuestionTrigger : MonoBehaviour
 {
     public GameObject Player;
     public QuestionController questionController;

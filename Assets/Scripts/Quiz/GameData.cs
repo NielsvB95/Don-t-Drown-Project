@@ -9,13 +9,7 @@ public class GameData
 
     public static QuizData[] AllQuizData
     {
-        get
-        {
-            return AllQuizData;
-        }
-        set
-        {
-            AllQuizData = value;
-        }
+        get;
+        set;
     }
 }

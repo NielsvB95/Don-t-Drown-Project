@@ -13,15 +13,15 @@ public class QuestionController : MonoBehaviour
     public Text answerResultText;
 
     public DataController dataController;
+    public QuizController quizController;
     private QuestionData questionData;
-    private int playerScore;
     private List<GameObject> answerButtonGameObjects = new List<GameObject>();
     private GameObject questionTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 0;
+    
     }
 
     // Update is called once per frame
@@ -63,7 +63,9 @@ public class QuestionController : MonoBehaviour
     {
         if (isCorrect == 1)
         {
-            playerScore++;
+            //increment correct answer amount by 1 for the given resource
+            quizController.correctAnswers[questionTrigger.tag]++;
+            //remove the object that spawned the question from game world, since answer was correct
             Destroy(questionTrigger);
             answerResultText.text = "Antwoord is goed.";
             answerResultPanel.GetComponent<Image>().color = UnityEngine.Color.green;
@@ -77,8 +79,6 @@ public class QuestionController : MonoBehaviour
             questionDisplay.SetActive(false);
             answerResultPanel.SetActive(true);
         }
-
-
     }
 
     public void CloseAnswerResultPanel()
@@ -86,6 +86,5 @@ public class QuestionController : MonoBehaviour
         answerResultPanel.SetActive(false);
         GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
     }
-
 
 }

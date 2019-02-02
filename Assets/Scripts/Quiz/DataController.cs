@@ -6,13 +6,8 @@ using System.Net;
 
 public class DataController : MonoBehaviour
 {
-    private QuizData[] allQuizData;
+    private QuizData[] allQuizData = GameData.AllQuizData;
     private System.Random rnd = new System.Random();
-
-    void Awake()
-    {
-        LoadQuizData();
-    }
 
     public QuestionData GetQuestionData()
     {
@@ -21,16 +16,4 @@ public class DataController : MonoBehaviour
         QuestionData questionData = allQuizData[0].vragen[questionId];
         return questionData;
     }
-
-    private void LoadQuizData()
-    {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag");
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = reader.ReadToEnd();
-        string JSONToParse = "{\"allQuizData\":[{\"vragen\": " + jsonResponse + "}]}";
-        GameData loadedData = JsonUtility.FromJson<GameData>(JSONToParse);
-        allQuizData = loadedData.allQuizData;
-    }
-
 }
