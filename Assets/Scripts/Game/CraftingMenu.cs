@@ -12,11 +12,11 @@ public class CraftingMenu : MonoBehaviour {
     public GameObject activeMenu;
     public GameObject otherMenu;
 
-    private int AxeAmountInt_1 = 4;
-    private int AxeAmountInt_2 = 2;
+    private int AxeAmountInt_1 = 3;
+    private int AxeAmountInt_2 = 3;
     private int PitchforkAmountInt_1 = 3;
-    private int PitchforkAmountInt_2 = 2;
-    private int PickaxeAmountInt_1 = 4;
+    private int PitchforkAmountInt_2 = 3;
+    private int PickaxeAmountInt_1 = 3;
     private int PickaxeAmountInt_2 = 3;
 
     public Text AxeAmount_1;
@@ -81,22 +81,28 @@ public class CraftingMenu : MonoBehaviour {
     {
         if(Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Axe == false)
         {
+            Inventory.Stick = Inventory.Stick - AxeAmountInt_1;
+            Inventory.Stone = Inventory.Stone - AxeAmountInt_1;
             Inventory.Axe = true;
         }
     }
 
     public void checkPickAxeMaterial()
     {
-        if (Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Pitchfork == false)
+        if (Inventory.Stick == PitchforkAmountInt_1 && Inventory.Stone == PitchforkAmountInt_2 && Inventory.Pitchfork == false)
         {
+            Inventory.Stick = Inventory.Stick - PitchforkAmountInt_1;
+            Inventory.Stone = Inventory.Stone - PitchforkAmountInt_2;
             Inventory.Pitchfork = true;
         }
     }
 
     public void checkPitchforkMaterials()
     {
-        if (Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Pickaxe == false)
+        if (Inventory.Stick == PickaxeAmountInt_1 && Inventory.Stone == PickaxeAmountInt_2 && Inventory.Pickaxe == false)
         {
+            Inventory.Stick = Inventory.Stick - PickaxeAmountInt_1;
+            Inventory.Stone = Inventory.Stone - PickaxeAmountInt_2;
             Inventory.Pickaxe = true;
         }
     }
