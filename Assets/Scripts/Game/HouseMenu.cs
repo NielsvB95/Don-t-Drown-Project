@@ -26,15 +26,21 @@ public class HouseMenu : MonoBehaviour
     public static bool GameIsPaused = true;
     public static bool HouseMenuCheck = false;
 
+    public int HouseLevel;
+
     public GameObject activeMenu;
+    public GameObject popUp;
 
     private int Index;
 
+    Dictionary<int, HouseModel> UpgradeRequirements;
 
     void Start()
     {
+        HouseLevel = 1;
+        MakeHousePlans();
         House.gameObject.GetComponent<SpriteRenderer>().sprite = House_1;
-        SetHouses();
+        SetHouse();        
     }
 
     void FixedUpdate()
@@ -68,7 +74,7 @@ public class HouseMenu : MonoBehaviour
     }
 
 
-    public void SetHouses()
+    public void SetHouse()
     {
         Sprite[] Houses = { House_1, House_2, House_3, House_4, House_5, House_6, House_7, House_8 };
         CurrentSprite = House.gameObject.GetComponent<SpriteRenderer>().sprite;
@@ -88,7 +94,43 @@ public class HouseMenu : MonoBehaviour
 
     public void changeHouse()
     {
-        House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
-        SetHouses();
+        if (Inventory.Stick >= UpgradeRequirements[HouseLevel].Stick && Inventory.Straw >= UpgradeRequirements[HouseLevel].Straw &&
+            Inventory.Clay >= UpgradeRequirements[HouseLevel].Clay && Inventory.Wood >= UpgradeRequirements[HouseLevel].Wood &&
+            Inventory.Iron >= UpgradeRequirements[HouseLevel].Iron && Inventory.Pebble >= UpgradeRequirements[HouseLevel].Pebble &&
+            Inventory.Stone >= UpgradeRequirements[HouseLevel].Stone)
+        {
+            Inventory.Stick -= UpgradeRequirements[HouseLevel].Stick;
+            Inventory.Straw -= UpgradeRequirements[HouseLevel].Straw;
+            Inventory.Stone -= UpgradeRequirements[HouseLevel].Stone;
+            Inventory.Clay -= UpgradeRequirements[HouseLevel].Clay;
+            Inventory.Wood -= UpgradeRequirements[HouseLevel].Wood;
+            Inventory.Iron -= UpgradeRequirements[HouseLevel].Iron;
+            Inventory.Pebble -= UpgradeRequirements[HouseLevel].Pebble;
+
+            House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
+            HouseLevel += 1;
+        }
+        else
+        {
+            popUp.SetActive(true);
+        }
+        SetHouse();
+    }
+
+    public void MakeHousePlans()
+    {
+        UpgradeRequirements = new Dictionary<int, HouseModel>();
+        UpgradeRequirements.Add(1, HouseModel.houseModel_1);
+        UpgradeRequirements.Add(2, HouseModel.houseModel_2);
+        UpgradeRequirements.Add(3, HouseModel.houseModel_3);
+        UpgradeRequirements.Add(4, HouseModel.houseModel_4);
+        UpgradeRequirements.Add(5, HouseModel.houseModel_5);
+        UpgradeRequirements.Add(6, HouseModel.houseModel_6);
+        UpgradeRequirements.Add(7, HouseModel.houseModel_7);
+    }
+
+    public void ClosePopup()
+    {
+        popUp.SetActive(false);
     }
 }

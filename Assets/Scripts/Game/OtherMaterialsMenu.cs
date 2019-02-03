@@ -7,6 +7,7 @@ public class OtherMaterialsMenu : MonoBehaviour {
 
     public GameObject activeMenu;
     public GameObject otherMenu;
+    public GameObject popUp;
 
     private int StrengthAmountInt_1 = 1;
     private int StrengthAmountInt_2 = 1;
@@ -60,16 +61,21 @@ public class OtherMaterialsMenu : MonoBehaviour {
         otherMenu.SetActive(true);
     }
 
-    public void checkStrengthPotionMaterials()
+    public void checkWisdomPotionMaterials()
     {
-        if (Inventory.Flower == StrengthAmountInt_1 && Inventory.Mushroom == StrengthAmountInt_2 && Inventory.Gemstone == StrengthAmountInt_3)
+        if (Inventory.Flower >= StrengthAmountInt_1 && Inventory.Mushroom >= StrengthAmountInt_2 && Inventory.Gemstone >= StrengthAmountInt_3)
         {
-            Inventory.StrengthPotion += 1;
+            Inventory.WisdomPotion += 1;
             Inventory.Flower -= StrengthAmountInt_1;
             Inventory.Mushroom -= StrengthAmountInt_2;
             Inventory.Gemstone -= StrengthAmountInt_3;
         }
+        else
+        {
+            popUp.SetActive(true);
+        }
     }
+    /*
     public void checkConstitutionPotionMaterials()
     {
         if(Inventory.Flower == ConstitutionAmountInt_1)
@@ -77,24 +83,41 @@ public class OtherMaterialsMenu : MonoBehaviour {
             Inventory.ConstitutionPotion += 1;
             Inventory.Flower -= ConstitutionAmountInt_1;
         }
+        else
+        {
+            popUp.SetActive(true);
+        }
     }
 
     public void checkIntelligencePotionMaterials()
     {
-        if (Inventory.Mushroom == IntelligenceAmountInt_1 && Inventory.Flower == IntelligenceAmountInt_2)
+        if (Inventory.Mushroom >= IntelligenceAmountInt_1 && Inventory.Flower >= IntelligenceAmountInt_2)
         {
             Inventory.IntelligencePotion += 1;
             Inventory.Mushroom -= IntelligenceAmountInt_1;
             Inventory.Flower -= IntelligenceAmountInt_2;
         }
+        else
+        {
+            popUp.SetActive(true);
+        }
     }
-
-    public void checkWisdomPotionMaterials()
+    
+    public void checkStrengthPotionMaterials()
     {
-        if (Inventory.Gemstone == WisdomAmountInt_1)
+        if (Inventory.Gemstone >= WisdomAmountInt_1)
         {
             Inventory.WisdomPotion += 1;
             Inventory.Gemstone -= WisdomAmountInt_1;
         }
+        else
+        {
+            popUp.SetActive(true);
+        }
+    }
+    */
+    public void ClosePopup()
+    {
+        popUp.SetActive(false);
     }
 }

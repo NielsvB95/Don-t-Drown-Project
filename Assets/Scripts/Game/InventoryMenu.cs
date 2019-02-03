@@ -13,6 +13,8 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject AxeCheck;
     public GameObject PitchforkCheck;
     public GameObject PickaxeCheck;
+    public GameObject popUp;
+
     private int Stick = Inventory.Stick;
     private int Wood = Inventory.Wood;
     private int Straw = Inventory.Straw;
@@ -23,11 +25,13 @@ public class InventoryMenu : MonoBehaviour {
     private int Flower = Inventory.Flower;
     private int Mushroom = Inventory.Mushroom;
     private int Gemstone = Inventory.Gemstone;
-    private int StrengthPotion = Inventory.StrengthPotion;
-    private int ConstitutionPotion = Inventory.ConstitutionPotion;
-    private int IntelligencePotion = Inventory.IntelligencePotion;
+    //private int StrengthPotion = Inventory.StrengthPotion;
+    //private int ConstitutionPotion = Inventory.ConstitutionPotion;
+    //private int IntelligencePotion = Inventory.IntelligencePotion;
     private int WisdomPotion = Inventory.WisdomPotion;
-  
+    private int WisdomSkillInt = 0;
+
+    public Text WisdomSkill;
     public Text Stick_Amount;
     public Text Wood_Amount;
     public Text Straw_Amount;
@@ -39,9 +43,9 @@ public class InventoryMenu : MonoBehaviour {
     public Text Mushroom_Amount;
     public Text Gemstone_Amount;
 
-    public Text StrengthPotion_Amount;
-    public Text ConstitutionPotion_Amount;
-    public Text IntelligencePotion_Amount;
+    //public Text StrengthPotion_Amount;
+    //public Text ConstitutionPotion_Amount;
+    //public Text IntelligencePotion_Amount;
     public Text WisdomPotion_Amount;
 
     void Start()
@@ -56,10 +60,11 @@ public class InventoryMenu : MonoBehaviour {
         Flower_Amount.text = Flower + "x";
         Mushroom_Amount.text = Mushroom + "x";
         Gemstone_Amount.text = Gemstone + "x";
-        StrengthPotion_Amount.text = StrengthPotion + "x";
-        ConstitutionPotion_Amount.text = ConstitutionPotion + "x";
-        IntelligencePotion_Amount.text = IntelligencePotion + "x";
+        //StrengthPotion_Amount.text = StrengthPotion + "x";
+        //ConstitutionPotion_Amount.text = ConstitutionPotion + "x";
+        //IntelligencePotion_Amount.text = IntelligencePotion + "x";
         WisdomPotion_Amount.text = WisdomPotion + "x";
+        WisdomSkill.text = WisdomSkillInt + "";
 
 
         if (Inventory.Axe)
@@ -107,5 +112,25 @@ public class InventoryMenu : MonoBehaviour {
     {
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
+    }
+    
+    public void checkPotion()
+    {
+        if(Inventory.WisdomPotion > 0)
+        {
+            WisdomSkillInt += 1;
+            Inventory.WisdomPotion -= 1;
+            WisdomPotion_Amount.text = Inventory.WisdomPotion + "x";
+            WisdomSkill.text = WisdomSkillInt + "";
+        }
+        else
+        {
+            popUp.SetActive(true);
+        }
+    }
+
+    public void ClosePopup()
+    {
+        popUp.SetActive(false);
     }
 }

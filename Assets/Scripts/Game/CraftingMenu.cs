@@ -11,6 +11,7 @@ public class CraftingMenu : MonoBehaviour {
 
     public GameObject activeMenu;
     public GameObject otherMenu;
+    public GameObject popUp;
 
     private int AxeAmountInt_1 = 3;
     private int AxeAmountInt_2 = 3;
@@ -19,6 +20,7 @@ public class CraftingMenu : MonoBehaviour {
     private int PickaxeAmountInt_1 = 3;
     private int PickaxeAmountInt_2 = 3;
 
+    public Text popUpText;
     public Text AxeAmount_1;
     public Text AxeAmount_2;
     public Text PitchforkAmount_1;
@@ -79,31 +81,66 @@ public class CraftingMenu : MonoBehaviour {
 
     public void checkAxeMaterials()
     {
-        if(Inventory.Stick == AxeAmountInt_1 && Inventory.Stone == AxeAmountInt_2 && Inventory.Axe == false)
+        if(Inventory.Stick >= AxeAmountInt_1 && Inventory.Stone >= AxeAmountInt_2)
         {
             Inventory.Stick = Inventory.Stick - AxeAmountInt_1;
             Inventory.Stone = Inventory.Stone - AxeAmountInt_1;
             Inventory.Axe = true;
         }
+        else if (Inventory.Axe == true)
+        {
+            popUpText.text = "Je hebt al een Bijl";
+            popUp.SetActive(true);
+        }
+        else
+        {
+            popUpText.text = "Je hebt niet genoeg materialen";
+            popUp.SetActive(true);
+        }
     }
 
     public void checkPickAxeMaterial()
     {
-        if (Inventory.Stick == PitchforkAmountInt_1 && Inventory.Stone == PitchforkAmountInt_2 && Inventory.Pitchfork == false)
+        if (Inventory.Stick >= PitchforkAmountInt_1 && Inventory.Stone >= PitchforkAmountInt_2)
         {
             Inventory.Stick = Inventory.Stick - PitchforkAmountInt_1;
             Inventory.Stone = Inventory.Stone - PitchforkAmountInt_2;
             Inventory.Pitchfork = true;
         }
+        else if (Inventory.Pitchfork == true)
+        {
+            popUpText.text = "Je hebt al een Hooivork";
+            popUp.SetActive(true);
+        }
+        else
+        {
+            popUpText.text = "Je hebt niet genoeg materialen";
+            popUp.SetActive(true);
+        }
     }
 
     public void checkPitchforkMaterials()
     {
-        if (Inventory.Stick == PickaxeAmountInt_1 && Inventory.Stone == PickaxeAmountInt_2 && Inventory.Pickaxe == false)
+        if (Inventory.Stick >= PickaxeAmountInt_1 && Inventory.Stone >= PickaxeAmountInt_2)
         {
             Inventory.Stick = Inventory.Stick - PickaxeAmountInt_1;
             Inventory.Stone = Inventory.Stone - PickaxeAmountInt_2;
             Inventory.Pickaxe = true;
         }
+        else if (Inventory.Pickaxe == true)
+        {
+            popUpText.text = "Je hebt al een Houweel";
+            popUp.SetActive(true);
+        }
+        else
+        {
+            popUpText.text = "Je hebt niet genoeg materialen";
+            popUp.SetActive(true);
+        }
+    }
+
+    public void ClosePopup()
+    {
+        popUp.SetActive(false);
     }
 }
