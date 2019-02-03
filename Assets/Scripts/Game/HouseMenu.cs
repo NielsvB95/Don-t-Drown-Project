@@ -15,6 +15,13 @@ public class HouseMenu : MonoBehaviour
     public Sprite House_7;
     public Sprite House_8;
 
+    public Sprite Stick;
+    public Sprite Clay;
+    public Sprite Straw;
+    public Sprite Wood;
+    public Sprite Stone;
+    public Sprite Iron;
+
     private Sprite CurrentSprite;
 
     public GameObject House;
@@ -35,12 +42,23 @@ public class HouseMenu : MonoBehaviour
 
     Dictionary<int, HouseModel> UpgradeRequirements;
 
+    public Text HouseKost_1;
+    public Text HouseKost_2;
+    public Text HouseKost_3;
+    public Text HouseKost_4;
+
+    public Image Resource_1;
+    public Image Resource_2;
+    public Image Resource_3;
+    public Image Resource_4;
+
     void Start()
     {
         HouseLevel = 1;
         MakeHousePlans();
         House.gameObject.GetComponent<SpriteRenderer>().sprite = House_1;
-        SetHouse();        
+        SetHouse();
+        ChangeCosts();
     }
 
     void FixedUpdate()
@@ -92,7 +110,85 @@ public class HouseMenu : MonoBehaviour
         }       
     }
 
-    public void changeHouse()
+    public void ChangeCosts()
+    {
+        if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_1)
+        {
+            Resource_3.enabled = false;
+            Resource_3.enabled = false;
+            Resource_4.enabled = false;
+            HouseKost_4.enabled = false;
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_2)
+        {
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_3)
+        {
+            Resource_3.enabled = true;
+            HouseKost_3.enabled = true;
+            Debug.Log("Hallo Huis 3");
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
+            HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_4)
+        {
+            Resource_4.enabled = true;
+            HouseKost_4.enabled = true;
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
+            HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
+            HouseKost_4.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_5)
+        {
+            Resource_4.enabled = false;
+            HouseKost_4.enabled = false;
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+            HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
+            Resource_1.gameObject.GetComponent<Image>().sprite = Stone;
+            Resource_2.gameObject.GetComponent<Image>().sprite = Clay;
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_6)
+        {
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+            HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
+        }
+        else if (House.gameObject.GetComponent<SpriteRenderer>().sprite == House_7)
+        {
+            HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Iron.ToString();
+            HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
+            Resource_2.gameObject.GetComponent<Image>().sprite = Iron;
+        }
+    }
+    IEnumerator RefreshCollider(Collider2D col)
+    {
+        col.enabled = false;
+
+        // Wait a frame so the collider can update 
+        // it's status to false 
+        yield return null;
+
+        // Enable
+        col.enabled = true;
+
+        yield return null;
+
+        // Force an update to the collider logic by nudging the 
+        // the transform but will ultimately not move the object
+        col.transform.localPosition += new Vector3(0.01f, 0, 0);
+        col.transform.localPosition += new Vector3(-0.01f, 0, 0);
+    }
+
+
+    public void ChangeHouse()
     {
         if (Inventory.Stick >= UpgradeRequirements[HouseLevel].Stick && Inventory.Straw >= UpgradeRequirements[HouseLevel].Straw &&
             Inventory.Clay >= UpgradeRequirements[HouseLevel].Clay && Inventory.Wood >= UpgradeRequirements[HouseLevel].Wood &&
@@ -109,12 +205,17 @@ public class HouseMenu : MonoBehaviour
 
             House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
             HouseLevel += 1;
+            
         }
         else
         {
             popUp.SetActive(true);
         }
+        HouseLevel += 1;
+        House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;        
+
         SetHouse();
+        ChangeCosts();
     }
 
     public void MakeHousePlans()
