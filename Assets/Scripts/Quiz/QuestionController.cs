@@ -11,6 +11,8 @@ public class QuestionController : MonoBehaviour
     public GameObject questionDisplay;
     public GameObject answerResultPanel;
     public Text answerResultText;
+    public GameObject hintPanel;
+    public Text hintText;
 
     public DataController dataController;
     public QuizController quizController;
@@ -36,7 +38,14 @@ public class QuestionController : MonoBehaviour
         RemoveAnswerButtons();
         questionData = dataController.GetQuestionData();
         questionDisplayText.text = questionData.Vraag;
-
+        if (questionData.Hint != "")
+        {
+            hintText.text = questionData.Hint;
+        }
+        else
+        {
+            hintText.text = "Geen hint beschikbaar.";
+        }
         for (int i = 0; i < questionData.Antwoorden.Length; i++)
         {
             GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
@@ -85,6 +94,16 @@ public class QuestionController : MonoBehaviour
     {
         answerResultPanel.SetActive(false);
         GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
+    }
+
+    public void ShowHintPanel()
+    {
+        hintPanel.SetActive(true);
+    }
+
+    public void CloseHintPanel()
+    {
+        hintPanel.SetActive(false);
     }
 
 }
