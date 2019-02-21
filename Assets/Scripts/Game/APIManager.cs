@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Net;
+using UnityEngine.UI;
 
 /*
  * This class is responsible for handling connections with the API.
@@ -13,6 +14,9 @@ using System.Net;
 */
 public class APIManager : MonoBehaviour
 {
+    public InputField usernameField;
+    public InputField passwordField;
+
     private QuizData[] allQuizData = GameData.AllQuizData;
     private UserData userData;
 
@@ -20,7 +24,6 @@ public class APIManager : MonoBehaviour
     void Start()
     {
         LoadQuizData();
-        Login();
     }
 
     // Update is called once per frame
@@ -43,7 +46,9 @@ public class APIManager : MonoBehaviour
 
     public void Login()
     {
-        string url = "http://dontdrown.nl/api/auth/login/";
+        string username = usernameField.text;
+        string password = passwordField.text;
+        string url = "http://dontdrown.nl/api/auth/login/" + username + "/" + password;
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
