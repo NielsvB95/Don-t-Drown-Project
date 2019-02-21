@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json.Linq;
 
 /*
  * This class is responsible for handling connections with the API.
@@ -14,6 +15,7 @@ using UnityEngine.SceneManagement;
  * and data for the quiz.
 */
 public class APIManager : MonoBehaviour
+
 {
     public InputField usernameField;
     public InputField passwordField;
@@ -64,9 +66,9 @@ public class APIManager : MonoBehaviour
             response = (HttpWebResponse)request.GetResponse();
             reader = new StreamReader(response.GetResponseStream());
             jsonResponse = reader.ReadToEnd();
-            Debug.Log(jsonResponse);
+            JToken token = JToken.Parse(jsonResponse);
+            JObject json = JObject.Parse((string)token);
             SceneManager.LoadScene("Game");
         }
     }
-
 }
