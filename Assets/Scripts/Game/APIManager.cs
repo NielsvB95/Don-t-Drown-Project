@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Net;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
  * This class is responsible for handling connections with the API.
@@ -51,10 +52,21 @@ public class APIManager : MonoBehaviour
         string url = "http://dontdrown.nl/api/auth/login/" + username + "/" + password;
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = reader.ReadToEnd();
-        userData = JsonUtility.FromJson<UserData>(jsonResponse);
-        Debug.Log(userData.SaveId);
+        if(response.StatusCode.Equals(System.Net.HttpStatusCode.OK))
+        {
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = reader.ReadToEnd();
+            userData = JsonUtility.FromJson<UserData>(jsonResponse);
+            Debug.Log(userData.SaveId);
+
+            url = "http://dontdrown.nl/api/save/" + userData.SaveId.ToString();
+            request = (HttpWebRequest)WebRequest.Create(url);
+            response = (HttpWebResponse)request.GetResponse();
+            reader = new StreamReader(response.GetResponseStream());
+            jsonResponse = reader.ReadToEnd();
+            Debug.Log(jsonResponse);
+            SceneManager.LoadScene("Game");
+        }
     }
 
 }
