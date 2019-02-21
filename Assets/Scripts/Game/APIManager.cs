@@ -14,11 +14,13 @@ using System.Net;
 public class APIManager : MonoBehaviour
 {
     private QuizData[] allQuizData = GameData.AllQuizData;
+    private UserData userData;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadQuizData();
+        Login();
     }
 
     // Update is called once per frame
@@ -37,6 +39,17 @@ public class APIManager : MonoBehaviour
         GameData loadedData = JsonUtility.FromJson<GameData>(JSONToParse);
         allQuizData = loadedData.allQuizData;
         GameData.AllQuizData = allQuizData;
+    }
+
+    public void Login()
+    {
+        string url = "http://dontdrown.nl/api/auth/login/";
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        string jsonResponse = reader.ReadToEnd();
+        userData = JsonUtility.FromJson<UserData>(jsonResponse);
+        Debug.Log(userData.SaveId);
     }
 
 }
