@@ -9,10 +9,13 @@ public class Player_Movement : MonoBehaviour {
     public static bool hasAxe = false;
     public static bool hasPickaxe = false;
     public static bool hasPitchfork = false;
+
+    private SpriteRenderer spriteRenderer;
+
     // Use this for initialization
     void Start () {
         Scene currentScene = SceneManager.GetActiveScene();
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
         // Retrieve the name of this scene.
         string sceneName = currentScene.name;
 
@@ -34,6 +37,16 @@ public class Player_Movement : MonoBehaviour {
         if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
         {
             transform.Translate(new Vector3( 0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime, 0f));
+        }
+
+        if (Input.GetAxisRaw("Horizontal") > 0.0f)
+        {
+            spriteRenderer.flipX = false;
+        }
+
+        if (Input.GetAxisRaw("Horizontal") < 0.0f)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 }
