@@ -6,6 +6,8 @@ using System.Net;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json.Linq;
+using UnityEngine.Networking;
+using System.Text;
 
 /*
  * This class is responsible for handling connections with the API.
@@ -17,6 +19,9 @@ using Newtonsoft.Json.Linq;
 public class APIManager : MonoBehaviour
 
 {
+    private string URL = "http://dontdrown.nl/api/save/2017";
+    private string json = "\"{\\\"Level\\\": 1, \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {\\\"Wood\\\":"+Inventory.Wood+"}}\"";
+
     public InputField usernameField;
     public InputField passwordField;
 
@@ -27,6 +32,7 @@ public class APIManager : MonoBehaviour
     void Start()
     {
         LoadQuizData();
+        StartCoroutine(Put(URL,json));
     }
 
     // Update is called once per frame
@@ -69,6 +75,23 @@ public class APIManager : MonoBehaviour
             JToken token = JToken.Parse(jsonResponse);
             JObject json = JObject.Parse((string)token);
             SceneManager.LoadScene("Game");
+        }
+    }
+
+    public IEnumerator Put(string url, string json)
+    {
+        byte[] myData = Encoding.UTF8.GetBytes(json);
+        UnityWebRequest request = UnityWebRequest.Put(url, myData);
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            Debug.Log("Upload complete!");
         }
     }
 }
