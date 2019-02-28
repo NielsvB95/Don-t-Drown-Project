@@ -26,12 +26,12 @@ public class APIManager : MonoBehaviour
     public InputField passwordField;
 
     private QuizData[] allQuizData = GameData.AllQuizData;
-    private UserData userData;
+    private SerializableUserData userData;
+    private SerializableSaveData saveData;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadQuizData();
         StartCoroutine(Put(URL,json));
     }
 
@@ -55,26 +55,64 @@ public class APIManager : MonoBehaviour
 
     public void Login()
     {
+        //Load questions and answers
+        LoadQuizData();
+
+        //Retrieve user data from API
         string username = usernameField.text;
         string password = passwordField.text;
         string url = "http://dontdrown.nl/api/auth/login/" + username + "/" + password;
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        if(response.StatusCode.Equals(System.Net.HttpStatusCode.OK))
+        if (response.StatusCode.Equals(HttpStatusCode.OK))
         {
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string jsonResponse = reader.ReadToEnd();
-            userData = JsonUtility.FromJson<UserData>(jsonResponse);
-            Debug.Log(userData.SaveId);
+            userData = JsonUtility.FromJson<SerializableUserData>(jsonResponse);
 
+            //Set UserData with retrieved data
+            UserData.Id = userData.Id;
+            UserData.Username = userData.Username;
+            UserData.RolId = userData.RolId;
+            UserData.Rol = userData.Rol;
+            UserData.SaveId = userData.SaveId;
+            UserData.Classname = userData.Classname;
+
+            //Use save id to retrieve save data from API
             url = "http://dontdrown.nl/api/save/" + userData.SaveId.ToString();
             request = (HttpWebRequest)WebRequest.Create(url);
             response = (HttpWebResponse)request.GetResponse();
-            reader = new StreamReader(response.GetResponseStream());
-            jsonResponse = reader.ReadToEnd();
-            JToken token = JToken.Parse(jsonResponse);
-            JObject json = JObject.Parse((string)token);
-            SceneManager.LoadScene("Game");
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            {
+                reader = new StreamReader(response.GetResponseStream());
+                jsonResponse = reader.ReadToEnd();
+                JToken token = JToken.Parse(jsonResponse);
+                JObject json = JObject.Parse((string)token);
+                saveData = json.ToObject<SerializableSaveData>();
+
+                //Set save data with retrieved data
+                SaveData.Level = saveData.Level;
+                SaveData.LevelUp = saveData.LevelUp;
+                SaveData.Request = saveData.Request;
+
+                //Set inventory items with data from savegame
+                Inventory.Wood = saveData.Inventory.Wood;
+                Inventory.Clay = saveData.Inventory.Clay;
+                Inventory.Stone = saveData.Inventory.Stone;
+                Inventory.Pebble = saveData.Inventory.Pebble;
+                Inventory.Iron = saveData.Inventory.Iron;
+                Inventory.Straw = saveData.Inventory.Straw;
+                Inventory.Stick = saveData.Inventory.Stick;
+                Inventory.Flower = saveData.Inventory.Flower;
+                Inventory.Mushroom = saveData.Inventory.Mushroom;
+                Inventory.Gemstone = saveData.Inventory.Gemstone;
+                Inventory.WisdomPotion = saveData.Inventory.WisdomPotion;
+                Inventory.Axe = saveData.Inventory.Axe;
+                Inventory.Pitchfork = saveData.Inventory.Pitchfork;
+                Inventory.Pickaxe = saveData.Inventory.Pickaxe;
+
+                SceneManager.LoadScene("Game");
+            }
         }
     }
 

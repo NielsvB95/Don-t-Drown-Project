@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class UserData
+public class UserData : MonoBehaviour
 {
-    public int Id;
-    public string Username;
-    public string Password;
-    public int RolId;
-    public string Rol;
-    public int SaveId;
-    public string SaveJson;
-    public string Classname;
+    public static int Id;
+    public static string Username;
+    public static int RolId;
+    public static string Rol;
+    public static int SaveId;
+    public static string Classname;
 }
