@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Newtonsoft.Json.Linq;
+using System.Collections;
 using System.IO;
 using System.Net;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using Newtonsoft.Json.Linq;
-using UnityEngine.Networking;
 using System.Text;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /*
  * This class is responsible for handling connections with the API.
@@ -19,9 +18,6 @@ using System.Text;
 public class APIManager : MonoBehaviour
 
 {
-    private string URL = "http://dontdrown.nl/api/save/2017";
-    private string json = "\"{\\\"Level\\\": 1, \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {\\\"Wood\\\":"+Inventory.Wood+"}}\"";
-
     public InputField usernameField;
     public InputField passwordField;
 
@@ -32,7 +28,7 @@ public class APIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Put(URL,json));
+
     }
 
     // Update is called once per frame
@@ -116,10 +112,17 @@ public class APIManager : MonoBehaviour
         }
     }
 
-    public IEnumerator Put(string url, string json)
+    public void SaveInventory()
     {
+        StartCoroutine(Put());
+    }
+
+    public IEnumerator Put()
+    {
+        string json = MakeInventory();
+        string URL = "http://dontdrown.nl/api/save/" + UserData.SaveId.ToString();
         byte[] myData = Encoding.UTF8.GetBytes(json);
-        UnityWebRequest request = UnityWebRequest.Put(url, myData);
+        UnityWebRequest request = UnityWebRequest.Put(URL, myData);
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();
 
@@ -131,5 +134,41 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log("Upload complete!");
         }
+    }
+
+    public string MakeInventory()
+    {
+        int Wood = Inventory.Wood;
+        int Clay = Inventory.Clay;
+        int Stone = Inventory.Stone;
+        int Pebble = Inventory.Pebble;
+        int Iron = Inventory.Iron;
+        int Straw = Inventory.Straw;
+        int Stick = Inventory.Stick;
+        int Flower = Inventory.Flower;
+        int Mushroom = Inventory.Mushroom;
+        int Gemstone = Inventory.Gemstone;
+        int WisdomPotion = Inventory.WisdomPotion;
+        bool Axe = Inventory.Axe;
+        bool Pitchfork = Inventory.Pitchfork;
+        bool Pickaxe = Inventory.Pickaxe;
+
+        string json = "\"{\\\"Level\\\": 1, \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {" +
+            "\\\"Wood\\\":" + Wood + "," +
+            "\\\"Clay\\\":" + Clay + "," +
+            "\\\"Stone\\\":" + Stone + "," +
+            "\\\"Pebble\\\":" + Pebble + "," +
+            "\\\"Iron\\\":" + Iron + "," +
+            "\\\"Straw\\\":" + Straw + "," +
+            "\\\"Stick\\\":" + Stick + "," +
+            "\\\"Flower\\\":" + Flower + "," +
+            "\\\"Mushroom\\\":" + Mushroom + "," +
+            "\\\"Gemstone\\\":" + Gemstone + "," +
+            "\\\"WisdomPotion\\\":" + WisdomPotion + "," +
+            "\\\"Axe\\\":\\\"" + Axe + "\\\"," +
+            "\\\"Pitchfork\\\":\\\"" + Pitchfork + "\\\"," +
+            "\\\"Pickaxe\\\":\\\"" + Pickaxe +
+            "\\\"}}\"";
+        return json;
     }
 }

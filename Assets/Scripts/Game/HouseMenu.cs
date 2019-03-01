@@ -130,7 +130,6 @@ public class HouseMenu : MonoBehaviour
         {
             Resource_3.enabled = true;
             HouseKost_3.enabled = true;
-            Debug.Log("Hallo Huis 3");
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
