@@ -8,6 +8,7 @@ public class QuizController : MonoBehaviour
 {
     public Text timeRemainingDisplayText;
     public GameObject quizEndDisplay;
+    public Text quizEndDisplayText;
     public float timeLimit;
     public GameObject questionDisplay;
     public GameObject missingToolPanel;
@@ -22,8 +23,10 @@ public class QuizController : MonoBehaviour
         {"Mushroom", 0},
         {"Flower", 0},
     };
+
     private bool isQuizActive;
     private float timeRemaining;
+    private string resultText;
 
     // Use this for initialization
     void Start()
@@ -39,6 +42,7 @@ public class QuizController : MonoBehaviour
         isQuizActive = false;
         AwardResources();
         questionDisplay.SetActive(false);
+        quizEndDisplayText.text = resultText;
         quizEndDisplay.SetActive(true);
     }
 
@@ -60,36 +64,45 @@ public class QuizController : MonoBehaviour
 
     private void AwardResources()
     {
+        resultText = "Quiz afgelopen. Je hebt de volgende spullen verzameld:\n";
         if (correctAnswers["Stick"] >= 3)
         {
             Inventory.Stick++;
+            resultText += "Stok: 1\n";
         }
         if (correctAnswers["Wood"] >= 3)
         {
+            resultText += "Hout: 1\n";
             Inventory.Wood++;
         }
         if (correctAnswers["Stone"] >= 3)
         {
+            resultText += "Steen: 1\n";
             Inventory.Stone++;
         }
         if (correctAnswers["Clay"] >= 3)
         {
+            resultText += "Klei: 1\n";
             Inventory.Clay++;
         }
         if (correctAnswers["Iron"] >= 3)
         {
+            resultText += "IJzer: 1\n";
             Inventory.Iron++;
         }
         if (correctAnswers["Straw"] >= 3)
         {
+            resultText += "Stro: 1\n";
             Inventory.Straw++;
         }
         if (correctAnswers["Mushroom"] >= 1)
         {
+            resultText += "Paddenstoel: 1\n";
             Inventory.Mushroom++;
         }
         if (correctAnswers["Flower"] >= 3)
         {
+            resultText += "Bloem: 1\n";
             Inventory.Flower++;
         }
     }

@@ -13,6 +13,7 @@ public class QuestionController : MonoBehaviour
     public Text answerResultText;
     public GameObject hintPanel;
     public Text hintText;
+    public GameObject endQuizButton;
 
     public DataController dataController;
     public QuizController quizController;
@@ -55,7 +56,7 @@ public class QuestionController : MonoBehaviour
             AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
             answerButton.Setup(questionData.Antwoorden[i]);
         }
-
+        endQuizButton.SetActive(false);
         questionDisplay.SetActive(true);
     }
 
@@ -92,6 +93,7 @@ public class QuestionController : MonoBehaviour
 
     public void CloseAnswerResultPanel()
     {
+        endQuizButton.SetActive(true);
         answerResultPanel.SetActive(false);
         GameObject.Find("Player").GetComponent<Player_Movement>().enabled = true;
     }
