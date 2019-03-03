@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-
-    
-    
+        
     public static int Wood { get; set; }
     public static int Clay { get; set; }
     public static int Stone { get; set; }

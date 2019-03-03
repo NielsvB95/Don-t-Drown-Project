@@ -153,7 +153,7 @@ public class APIManager : MonoBehaviour
         bool Pitchfork = Inventory.Pitchfork;
         bool Pickaxe = Inventory.Pickaxe;
 
-        string json = "\"{\\\"Level\\\": 1, \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {" +
+        string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {" +
             "\\\"Wood\\\":" + Wood + "," +
             "\\\"Clay\\\":" + Clay + "," +
             "\\\"Stone\\\":" + Stone + "," +

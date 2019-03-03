@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]
 public class HouseSpriteRecipe
 {
     public Sprite HouseImage;
     public HouseModel HouseModel;
     public int House_id;
-
+    
     public static HouseSpriteRecipe House_1 = new HouseSpriteRecipe()
     {
         House_id = 1,

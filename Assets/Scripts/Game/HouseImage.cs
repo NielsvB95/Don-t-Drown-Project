@@ -13,7 +13,7 @@ public class HouseImage : MonoBehaviour
     public Sprite House_7;
     public Sprite House_8;
 
-    private void Start()
+    void Awake()
     {
         SetSprites();
         Debug.Log("SetSprites called");

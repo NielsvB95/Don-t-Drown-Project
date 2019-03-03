@@ -29,6 +29,7 @@ public class QuestionTrigger : MonoBehaviour
                     allowed = Inventory.Pitchfork;
                     break;
                 case "Stick":
+                case "Pebble":
                 case "Clay":
                 case "Flower":
                 case "Mushroom":

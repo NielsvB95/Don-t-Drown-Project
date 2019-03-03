@@ -15,20 +15,6 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject PickaxeCheck;
     public GameObject popUp;
 
-    private int Stick = Inventory.Stick;
-    private int Wood = Inventory.Wood;
-    private int Straw = Inventory.Straw;
-    private int Clay = Inventory.Clay;
-    private int Stone = Inventory.Stone;
-    private int Pebble = Inventory.Pebble;
-    private int Iron = Inventory.Iron;
-    private int Flower = Inventory.Flower;
-    private int Mushroom = Inventory.Mushroom;
-    private int Gemstone = Inventory.Gemstone;
-    //private int StrengthPotion = Inventory.StrengthPotion;
-    //private int ConstitutionPotion = Inventory.ConstitutionPotion;
-    //private int IntelligencePotion = Inventory.IntelligencePotion;
-    private int WisdomPotion = Inventory.WisdomPotion;
     private int WisdomSkillInt = 0;
 
     public Text WisdomSkill;
@@ -50,20 +36,25 @@ public class InventoryMenu : MonoBehaviour {
 
     void Start()
     {
-        Stick_Amount.text = Stick + "x";
-        Wood_Amount.text = Wood + "x";
-        Straw_Amount.text = Straw + "x";
-        Clay_Amount.text = Clay + "x";
-        Stone_Amount.text = Stone + "x";
-        Pebble_Amount.text = Pebble + "x";
-        Iron_Amount.text = Iron + "x";
-        Flower_Amount.text = Flower + "x";
-        Mushroom_Amount.text = Mushroom + "x";
-        Gemstone_Amount.text = Gemstone + "x";
+        SetInventory();
+    }
+
+    public void SetInventory()
+    {
+        Stick_Amount.text = Inventory.Stick + "x";
+        Wood_Amount.text = Inventory.Wood + "x";
+        Straw_Amount.text = Inventory.Straw + "x";
+        Clay_Amount.text = Inventory.Clay + "x";
+        Stone_Amount.text = Inventory.Stone + "x";
+        Pebble_Amount.text = Inventory.Pebble + "x";
+        Iron_Amount.text = Inventory.Iron + "x";
+        Flower_Amount.text = Inventory.Flower + "x";
+        Mushroom_Amount.text = Inventory.Mushroom + "x";
+        Gemstone_Amount.text = Inventory.Gemstone + "x";
         //StrengthPotion_Amount.text = StrengthPotion + "x";
         //ConstitutionPotion_Amount.text = ConstitutionPotion + "x";
         //IntelligencePotion_Amount.text = IntelligencePotion + "x";
-        WisdomPotion_Amount.text = WisdomPotion + "x";
+        WisdomPotion_Amount.text = Inventory.WisdomPotion + "x";
         WisdomSkill.text = WisdomSkillInt + "";
 
 
@@ -110,6 +101,7 @@ public class InventoryMenu : MonoBehaviour {
 
     void PauseInventory()
     {
+        SetInventory();
         activeMenu.SetActive(true);
         Time.timeScale = 0f;
     }

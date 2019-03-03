@@ -22,6 +22,7 @@ public class QuizController : MonoBehaviour
         {"Straw", 0},
         {"Mushroom", 0},
         {"Flower", 0},
+        {"Pebble", 0}
     };
 
     private bool isQuizActive;
@@ -65,6 +66,11 @@ public class QuizController : MonoBehaviour
     private void AwardResources()
     {
         resultText = "Quiz afgelopen. Je hebt de volgende spullen verzameld:\n";
+        if (correctAnswers["Pebble"] >= 3)
+        {
+            Inventory.Pebble++;
+            resultText += "Kiezel: 1\n";
+        }
         if (correctAnswers["Stick"] >= 3)
         {
             Inventory.Stick++;

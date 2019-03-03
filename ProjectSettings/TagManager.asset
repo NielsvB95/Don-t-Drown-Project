@@ -12,6 +12,7 @@ TagManager:
   - Straw
   - Mushroom
   - Flower
+  - Pebble
   layers:
   - Default
   - TransparentFX
