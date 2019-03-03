@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class HouseMenu : MonoBehaviour
 {
+    public static bool HouseCheck = false;
+    public bool HouseBuild = false;
+
     public Sprite House_1;
     public Sprite House_2;
     public Sprite House_3;
@@ -14,6 +17,9 @@ public class HouseMenu : MonoBehaviour
     public Sprite House_6;
     public Sprite House_7;
     public Sprite House_8;
+
+    public List<Sprite> Sprites;
+    public Sprite LastHouse;
 
     public Sprite Stick;
     public Sprite Clay;
@@ -36,7 +42,8 @@ public class HouseMenu : MonoBehaviour
     public int HouseLevel;
 
     public GameObject activeMenu;
-    public GameObject popUp;
+    public GameObject popUp1;
+    public GameObject popUp2;
 
     private int Index;
 
@@ -54,6 +61,7 @@ public class HouseMenu : MonoBehaviour
 
     void Start()
     {
+        //HouseImage.SetSprites();
         HouseLevel = 1;
         MakeHousePlans();
         House.gameObject.GetComponent<SpriteRenderer>().sprite = House_1;
@@ -97,7 +105,6 @@ public class HouseMenu : MonoBehaviour
         Sprite[] Houses = { House_1, House_2, House_3, House_4, House_5, House_6, House_7, House_8 };
         CurrentSprite = House.gameObject.GetComponent<SpriteRenderer>().sprite;
         CurrentHouse.gameObject.GetComponent<Image>().sprite = CurrentSprite;
-        
         if (CurrentSprite == House_8)
         {
             Destroy(UpgradeHouse);
@@ -192,7 +199,7 @@ public class HouseMenu : MonoBehaviour
         if (Inventory.Stick >= UpgradeRequirements[HouseLevel].Stick && Inventory.Straw >= UpgradeRequirements[HouseLevel].Straw &&
             Inventory.Clay >= UpgradeRequirements[HouseLevel].Clay && Inventory.Wood >= UpgradeRequirements[HouseLevel].Wood &&
             Inventory.Iron >= UpgradeRequirements[HouseLevel].Iron && Inventory.Pebble >= UpgradeRequirements[HouseLevel].Pebble &&
-            Inventory.Stone >= UpgradeRequirements[HouseLevel].Stone)
+            Inventory.Stone >= UpgradeRequirements[HouseLevel].Stone && HouseBuild == false)
         {
             Inventory.Stick -= UpgradeRequirements[HouseLevel].Stick;
             Inventory.Straw -= UpgradeRequirements[HouseLevel].Straw;
@@ -202,35 +209,42 @@ public class HouseMenu : MonoBehaviour
             Inventory.Iron -= UpgradeRequirements[HouseLevel].Iron;
             Inventory.Pebble -= UpgradeRequirements[HouseLevel].Pebble;
 
-            House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
-            HouseLevel += 1;
-            
+            HouseBuild = true;
+            if (HouseCheck && HouseBuild)
+            {
+                HouseLevel += 1;
+                House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
+                SetHouse();
+                ChangeCosts();
+                HouseBuild = false;
+                HouseCheck = false;
+            }
+        }
+        else if (HouseBuild == true)
+        {
+            popUp2.SetActive(true);
         }
         else
         {
-            popUp.SetActive(true);
+            popUp1.SetActive(true);
         }
-        HouseLevel += 1;
-        House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;        
-
-        SetHouse();
-        ChangeCosts();
     }
 
     public void MakeHousePlans()
     {
         UpgradeRequirements = new Dictionary<int, HouseModel>();
-        UpgradeRequirements.Add(1, HouseModel.houseModel_1);
-        UpgradeRequirements.Add(2, HouseModel.houseModel_2);
-        UpgradeRequirements.Add(3, HouseModel.houseModel_3);
-        UpgradeRequirements.Add(4, HouseModel.houseModel_4);
-        UpgradeRequirements.Add(5, HouseModel.houseModel_5);
-        UpgradeRequirements.Add(6, HouseModel.houseModel_6);
-        UpgradeRequirements.Add(7, HouseModel.houseModel_7);
+        UpgradeRequirements.Add(1, HouseModel.houseModel_2);
+        UpgradeRequirements.Add(2, HouseModel.houseModel_3);
+        UpgradeRequirements.Add(3, HouseModel.houseModel_4);
+        UpgradeRequirements.Add(4, HouseModel.houseModel_5);
+        UpgradeRequirements.Add(5, HouseModel.houseModel_6);
+        UpgradeRequirements.Add(6, HouseModel.houseModel_7);
+        UpgradeRequirements.Add(7, HouseModel.houseModel_8);
     }
 
     public void ClosePopup()
     {
-        popUp.SetActive(false);
+        popUp1.SetActive(false);
+        popUp2.SetActive(false);
     }
 }

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 325c8aa1c3aecdc499de659b81f3e6e6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - House_1: {fileID: 21300000, guid: 26581d5864c893c47ab725f5d2fc8b72, type: 3}
+  - House_2: {fileID: 21300000, guid: 90bfa91bd97f9d04c9bb7272c28da470, type: 3}
+  - House_3: {fileID: 21300000, guid: c77b8dc848ecbbb4cadc66df6b422249, type: 3}
+  - House_4: {fileID: 21300000, guid: 6ce3e50a1a338064892d78c5e93e7ac1, type: 3}
+  - House_5: {fileID: 21300000, guid: 14220919117f72648bbffa84ff5762a2, type: 3}
+  - House_6: {fileID: 21300000, guid: 4f89fc837a588a645b962cd7a0a53697, type: 3}
+  - House_7: {fileID: 21300000, guid: 40c7390d146033d48b52c1db120ac44d, type: 3}
+  - House_8: {fileID: 21300000, guid: 1fbaaee048005424dbd85e66fac02a2d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
