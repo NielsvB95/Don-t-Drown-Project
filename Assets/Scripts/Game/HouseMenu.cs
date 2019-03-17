@@ -50,6 +50,7 @@ public class HouseMenu : MonoBehaviour
     public Image Resource_2;
     public Image Resource_3;
     public Image Resource_4;
+    public Collider2D target;
 
     void Start()
     {
@@ -126,6 +127,7 @@ public class HouseMenu : MonoBehaviour
         CurrentSprite = CurrentHouse.HouseImage;
         CurrentHouseImage.gameObject.GetComponent<Image>().sprite = CurrentSprite;
         House.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentSprite;
+        House.AddComponent<PolygonCollider2D>();
         if (CurrentSprite == HouseSpriteRecipe.House_8.HouseImage)
         {
             Destroy(UpgradeHouseImage);
@@ -202,8 +204,10 @@ public class HouseMenu : MonoBehaviour
             Resource_2.gameObject.GetComponent<Image>().sprite = Iron;
         }
     }
+    /*
     IEnumerator RefreshCollider(Collider2D col)
     {
+        
         col.enabled = false;
 
         // Wait a frame so the collider can update 
@@ -219,8 +223,9 @@ public class HouseMenu : MonoBehaviour
         // the transform but will ultimately not move the object
         col.transform.localPosition += new Vector3(0.01f, 0, 0);
         col.transform.localPosition += new Vector3(-0.01f, 0, 0);
+        Debug.Log("refreshed collider");
     }
-
+    */
 
     public void ChangeHouse()
     {
