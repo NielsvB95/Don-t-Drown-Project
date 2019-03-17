@@ -1457,7 +1457,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 730975252}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9623,8 +9623,8 @@ RectTransform:
   - {fileID: 1268643409}
   - {fileID: 277434501}
   - {fileID: 112668234}
-  - {fileID: 1100092045}
   - {fileID: 90683739}
+  - {fileID: 1100092045}
   m_Father: {fileID: 777484171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10279,8 +10279,8 @@ MonoBehaviour:
   Stone: {fileID: 21300000, guid: 971cb96be2e2b034fa8ad249caaa811c, type: 3}
   Iron: {fileID: 21300000, guid: d7cc2dd628411c44baa3536114501c8d, type: 3}
   House: {fileID: 171203918}
-  CurrentHouse: {fileID: 90683740}
-  UpgradeHouse: {fileID: 1100092046}
+  CurrentHouseImage: {fileID: 90683740}
+  UpgradeHouseImage: {fileID: 1100092046}
   UpgradeButton: {fileID: 112668233}
   HouseLevel: 0
   activeMenu: {fileID: 730975251}
@@ -12938,7 +12938,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 730975252}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

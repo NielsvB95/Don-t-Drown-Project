@@ -19,13 +19,16 @@ public class HouseMenu : MonoBehaviour
     public Sprite Wood;
     public Sprite Stone;
     public Sprite Iron;
-
+    
     private Sprite CurrentSprite;
+
+    private HouseSpriteRecipe CurrentHouse;
+    private HouseSpriteRecipe UpgradeHouse;
 
     public GameObject House;
 
-    public Image CurrentHouse;
-    public Image UpgradeHouse;
+    public Image CurrentHouseImage;
+    public Image UpgradeHouseImage;
     public GameObject UpgradeButton;
 
     public static bool GameIsPaused = true;
@@ -54,6 +57,8 @@ public class HouseMenu : MonoBehaviour
     void Start()
     {
         HouseLevel = SaveData.Level;
+        CurrentHouse = GetHouse(HouseLevel);
+        UpgradeHouse = GetHouse(HouseLevel + 1);
         SetHouse();
         MakeHousePlans();
         ChangeCosts();
@@ -117,23 +122,23 @@ public class HouseMenu : MonoBehaviour
     public void SetHouse()
     {
         Debug.Log(HouseLevel);
-        CurrentSprite = GetHouse(HouseLevel).HouseImage;
-        CurrentHouse.gameObject.GetComponent<Image>().sprite = CurrentSprite;
+        CurrentSprite = CurrentHouse.HouseImage;
+        CurrentHouseImage.gameObject.GetComponent<Image>().sprite = CurrentSprite;
         House.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentSprite;
         if (CurrentSprite == HouseSpriteRecipe.House_8.HouseImage)
         {
-            Destroy(UpgradeHouse);
+            Destroy(UpgradeHouseImage);
             UpgradeButton.SetActive(false);
         }
         else
         {
-            UpgradeHouse.gameObject.GetComponent<Image>().sprite = GetHouse(HouseLevel + 1).HouseImage;
+            UpgradeHouseImage.gameObject.GetComponent<Image>().sprite = UpgradeHouse.HouseImage;
         }       
     }
 
     public void ChangeCosts()
     {
-        if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_2.HouseImage)
+        if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_2.HouseImage)
         {
             Resource_3.enabled = false;
             Resource_3.enabled = false;
@@ -142,12 +147,12 @@ public class HouseMenu : MonoBehaviour
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_3.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_3.HouseImage)
         {
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_4.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_4.HouseImage)
         {
             Resource_3.enabled = true;
             HouseKost_3.enabled = true;
@@ -155,7 +160,7 @@ public class HouseMenu : MonoBehaviour
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_5.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_5.HouseImage)
         {
             Resource_4.enabled = true;
             HouseKost_4.enabled = true;
@@ -164,7 +169,7 @@ public class HouseMenu : MonoBehaviour
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
             HouseKost_4.text = UpgradeRequirements[HouseLevel].Clay.ToString();
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_6.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_6.HouseImage)
         {
             Resource_4.enabled = false;
             HouseKost_4.enabled = false;
@@ -174,13 +179,13 @@ public class HouseMenu : MonoBehaviour
             Resource_1.gameObject.GetComponent<Image>().sprite = Stone;
             Resource_2.gameObject.GetComponent<Image>().sprite = Clay;
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_7.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_7.HouseImage)
         {
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Clay.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
         }
-        else if (UpgradeHouse.gameObject.GetComponent<Image>().sprite == HouseSpriteRecipe.House_8.HouseImage)
+        else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_8.HouseImage)
         {
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Iron.ToString();
@@ -225,7 +230,7 @@ public class HouseMenu : MonoBehaviour
 
             HouseLevel += 1;
             SaveData.Level += 1;
-            House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouse.gameObject.GetComponent<Image>().sprite;
+            House.gameObject.GetComponent<SpriteRenderer>().sprite = UpgradeHouseImage.gameObject.GetComponent<Image>().sprite;
             SetHouse();
             ChangeCosts();
             //HouseBuild = true;

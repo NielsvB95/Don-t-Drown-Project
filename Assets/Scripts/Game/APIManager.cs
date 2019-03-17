@@ -171,4 +171,13 @@ public class APIManager : MonoBehaviour
             "\\\"}}\"";
         return json;
     }
+
+    public void GetLevelup()
+    {
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/save/upgrade/" + UserData.SaveId.ToString());
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        string jsonResponse = reader.ReadToEnd();
+        Debug.Log(jsonResponse);
+    }
 }
