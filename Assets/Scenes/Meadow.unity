@@ -6901,6 +6901,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1298841396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298841398}
+  - component: {fileID: 1298841397}
+  m_Layer: 0
+  m_Name: ApiManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1298841397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298841396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b3c99882799a49bad961eac8ae4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameField: {fileID: 0}
+  passwordField: {fileID: 0}
+--- !u!4 &1298841398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298841396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 137.74103, y: 541.05164, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321113326
 GameObject:
   m_ObjectHideFlags: 0
@@ -8413,6 +8458,7 @@ MonoBehaviour:
   timeLimit: 120
   questionDisplay: {fileID: 816015885}
   missingToolPanel: {fileID: 339223479}
+  apiManager: {fileID: 1298841397}
 --- !u!4 &1369151382
 Transform:
   m_ObjectHideFlags: 0

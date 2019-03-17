@@ -28,7 +28,7 @@ public class APIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -91,6 +91,8 @@ public class APIManager : MonoBehaviour
                 SaveData.LevelUp = saveData.LevelUp;
                 SaveData.Request = saveData.Request;
 
+                CheckLevelup();
+
                 //Set inventory items with data from savegame
                 Inventory.Wood = saveData.Inventory.Wood;
                 Inventory.Clay = saveData.Inventory.Clay;
@@ -107,12 +109,14 @@ public class APIManager : MonoBehaviour
                 Inventory.Pitchfork = saveData.Inventory.Pitchfork;
                 Inventory.Pickaxe = saveData.Inventory.Pickaxe;
 
+                SaveGame();
+
                 SceneManager.LoadScene("Game");
             }
         }
     }
 
-    public void SaveInventory()
+    public void SaveGame()
     {
         StartCoroutine(Put());
     }
@@ -153,7 +157,7 @@ public class APIManager : MonoBehaviour
         bool Pitchfork = Inventory.Pitchfork;
         bool Pickaxe = Inventory.Pickaxe;
 
-        string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\": \\\"true\\\", \\\"Inventory\\\": {" +
+        string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\":\\\"" + SaveData.LevelUp + "\\\", \\\"Request\\\":\\\"" + SaveData.Request + "\\\", \\\"Inventory\\\": {" +
             "\\\"Wood\\\":" + Wood + "," +
             "\\\"Clay\\\":" + Clay + "," +
             "\\\"Stone\\\":" + Stone + "," +
@@ -172,12 +176,12 @@ public class APIManager : MonoBehaviour
         return json;
     }
 
-    public void GetLevelup()
+    public void CheckLevelup()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/save/upgrade/" + UserData.SaveId.ToString());
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = reader.ReadToEnd();
-        Debug.Log(jsonResponse);
+        if(SaveData.LevelUp == true)
+        {
+            SaveData.LevelUp = false;
+            SaveData.Level += 1;
+        }
     }
 }

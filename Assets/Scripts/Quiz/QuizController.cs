@@ -12,6 +12,7 @@ public class QuizController : MonoBehaviour
     public float timeLimit;
     public GameObject questionDisplay;
     public GameObject missingToolPanel;
+    public APIManager apiManager;
     public Dictionary<string, int> correctAnswers = new Dictionary<string, int>
     {
         {"Stick", 0},
@@ -45,6 +46,7 @@ public class QuizController : MonoBehaviour
         questionDisplay.SetActive(false);
         quizEndDisplayText.text = resultText;
         quizEndDisplay.SetActive(true);
+        apiManager.SaveGame();
     }
 
     public void ReturnToGame()
