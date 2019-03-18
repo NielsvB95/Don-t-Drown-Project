@@ -8454,7 +8454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemainingDisplayText: {fileID: 626625615}
   quizEndDisplay: {fileID: 1697551449}
-  quizEndDisplayText: {fileID: 0}
+  quizEndDisplayText: {fileID: 1322449676}
   timeLimit: 120
   questionDisplay: {fileID: 816015885}
   missingToolPanel: {fileID: 339223479}
