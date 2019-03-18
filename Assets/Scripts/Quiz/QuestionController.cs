@@ -20,7 +20,7 @@ public class QuestionController : MonoBehaviour
     private QuestionData questionData;
     private List<GameObject> answerButtonGameObjects = new List<GameObject>();
     private GameObject questionTrigger;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +47,12 @@ public class QuestionController : MonoBehaviour
         {
             hintText.text = "Geen hint beschikbaar.";
         }
+        questionData.Antwoorden.Shuffle();
         for (int i = 0; i < questionData.Antwoorden.Length; i++)
         {
             GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
             answerButtonGameObjects.Add(answerButtonGameObject);
             answerButtonGameObject.transform.SetParent(answerButtonParent);
-
             AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
             answerButton.Setup(questionData.Antwoorden[i]);
         }

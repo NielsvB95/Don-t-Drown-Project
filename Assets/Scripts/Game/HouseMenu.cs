@@ -123,7 +123,6 @@ public class HouseMenu : MonoBehaviour
 
     public void SetHouse()
     {
-        Debug.Log(HouseLevel);
         CurrentSprite = CurrentHouse.HouseImage;
         CurrentHouseImage.gameObject.GetComponent<Image>().sprite = CurrentSprite;
         House.gameObject.GetComponent<SpriteRenderer>().sprite = CurrentSprite;

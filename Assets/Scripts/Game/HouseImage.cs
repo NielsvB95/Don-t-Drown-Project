@@ -16,7 +16,6 @@ public class HouseImage : MonoBehaviour
     void Awake()
     {
         SetSprites();
-        Debug.Log("SetSprites called");
     }
 
     public static Sprite image;

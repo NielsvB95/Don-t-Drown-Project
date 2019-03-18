@@ -23,7 +23,6 @@ public class Datamanager : MonoBehaviour {
 
         // Manually save the PlayerPrefs file to disk, in case we experience a crash
         PlayerPrefs.Save();
-        Debug.Log(playerPosition);
     }
 
     /// <summary>Saves playerName, playerScore and playerHealth 
