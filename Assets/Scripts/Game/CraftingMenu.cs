@@ -100,7 +100,7 @@ public class CraftingMenu : MonoBehaviour {
         }
     }
 
-    public void checkPickAxeMaterial()
+    public void checkPitchforkMaterials()
     {
         if (Inventory.Stick >= PitchforkAmountInt_1 && Inventory.Pebble >= PitchforkAmountInt_2 && Inventory.Pitchfork == false)
         {
@@ -120,7 +120,7 @@ public class CraftingMenu : MonoBehaviour {
         }
     }
 
-    public void checkPitchforkMaterials()
+    public void checkPickAxeMaterial()
     {
         if (Inventory.Stick >= PickaxeAmountInt_1 && Inventory.Pebble >= PickaxeAmountInt_2 && Inventory.Pickaxe == false)
         {
