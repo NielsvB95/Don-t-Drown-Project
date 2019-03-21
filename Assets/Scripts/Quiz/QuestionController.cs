@@ -75,20 +75,17 @@ public class QuestionController : MonoBehaviour
         {
             //increment correct answer amount by 1 for the given resource
             quizController.correctAnswers[questionTrigger.tag]++;
-            //remove the object that spawned the question from game world, since answer was correct
-            Destroy(questionTrigger);
             answerResultText.text = "Antwoord is goed.";
             answerResultPanel.GetComponent<Image>().color = UnityEngine.Color.green;
-            questionDisplay.SetActive(false);
-            answerResultPanel.SetActive(true);
         }
         else
         {
             answerResultText.text = "Antwoord is fout.";
             answerResultPanel.GetComponent<Image>().color = UnityEngine.Color.red;
-            questionDisplay.SetActive(false);
-            answerResultPanel.SetActive(true);
         }
+        Destroy(questionTrigger);
+        questionDisplay.SetActive(false);
+        answerResultPanel.SetActive(true);
     }
 
     public void CloseAnswerResultPanel()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class SimpleObjectPool : MonoBehaviour {
 
     public GameObject prefab;
+    public Canvas parent;
 
     private Stack<GameObject> inactiveInstances = new Stack<GameObject>();
 
@@ -17,7 +18,7 @@ public class SimpleObjectPool : MonoBehaviour {
         }
         else
         {
-            spawnedGameObject = (GameObject)GameObject.Instantiate(prefab);
+            spawnedGameObject = (GameObject)GameObject.Instantiate(prefab, parent.transform, false);
             PooledObject pooledObject = spawnedGameObject.AddComponent<PooledObject>();
             pooledObject.pool = this;
         }

@@ -484,6 +484,7 @@ MonoBehaviour:
   timeRemainingDisplayText: {fileID: 650481633}
   quizEndDisplay: {fileID: 78066345}
   quizEndDisplayText: {fileID: 539415871}
+  endQuizButton: {fileID: 224993332}
   timeLimit: 120
   questionDisplay: {fileID: 1315918653}
   missingToolPanel: {fileID: 1905417488}
@@ -615,9 +616,9 @@ RectTransform:
   m_Father: {fileID: 1435717103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 858.324, y: -915.82}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -94.676025, y: -798.82}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224993334
@@ -1508,8 +1509,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 30}
-  m_SizeDelta: {x: -60, y: 150}
+  m_AnchoredPosition: {x: 0, y: 32.5}
+  m_SizeDelta: {x: -60, y: 216.4}
   m_Pivot: {x: 0.5, y: 0.5000003}
 --- !u!114 &539415871
 MonoBehaviour:
@@ -1538,7 +1539,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2610,10 +2611,10 @@ RectTransform:
   m_Father: {fileID: 1315918656}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455, y: 366}
-  m_SizeDelta: {x: 80.3, y: 33}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -142, y: -95}
+  m_SizeDelta: {x: 80.30005, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &862074641
 MonoBehaviour:
@@ -4031,7 +4032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.9845956, y: 0.55615807}
-  m_AnchoredPosition: {x: 8.099976, y: 9.299988}
+  m_AnchoredPosition: {x: 8.099976, y: 9.300049}
   m_SizeDelta: {x: -29.4, y: -18.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079354014
@@ -4192,10 +4193,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5208,6 +5209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1768344589197888, guid: 7fa937b3ce2afd94f9c0cc506377e227, type: 3}
+  parent: {fileID: 1082140913}
 --- !u!4 &1327325291
 Transform:
   m_ObjectHideFlags: 0

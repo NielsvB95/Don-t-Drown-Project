@@ -9,6 +9,7 @@ public class QuizController : MonoBehaviour
     public Text timeRemainingDisplayText;
     public GameObject quizEndDisplay;
     public Text quizEndDisplayText;
+    public GameObject endQuizButton;
     public float timeLimit;
     public GameObject questionDisplay;
     public GameObject missingToolPanel;
@@ -42,6 +43,7 @@ public class QuizController : MonoBehaviour
     public void EndQuiz()
     {
         isQuizActive = false;
+        endQuizButton.SetActive(false);
         AwardResources();
         questionDisplay.SetActive(false);
         quizEndDisplayText.text = resultText;
