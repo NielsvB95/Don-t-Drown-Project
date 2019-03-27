@@ -21,7 +21,7 @@ public class InventoryMenu : MonoBehaviour {
     public Text Stick_Amount;
     public Text Wood_Amount;
     public Text Straw_Amount;
-    public Text Clay_Amount;
+    public Text Grass_Amount;
     public Text Stone_Amount;
     public Text Pebble_Amount;
     public Text Iron_Amount;
@@ -44,7 +44,7 @@ public class InventoryMenu : MonoBehaviour {
         Stick_Amount.text = Inventory.Stick + "x";
         Wood_Amount.text = Inventory.Wood + "x";
         Straw_Amount.text = Inventory.Straw + "x";
-        Clay_Amount.text = Inventory.Clay + "x";
+        Grass_Amount.text = Inventory.Grass + "x";
         Stone_Amount.text = Inventory.Stone + "x";
         Pebble_Amount.text = Inventory.Pebble + "x";
         Iron_Amount.text = Inventory.Iron + "x";

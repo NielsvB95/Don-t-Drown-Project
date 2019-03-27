@@ -5746,7 +5746,7 @@ GameObject:
   - component: {fileID: 394127430}
   - component: {fileID: 394127429}
   m_Layer: 5
-  m_Name: Clay_Amount
+  m_Name: Grass_Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10111,7 +10111,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad95b97b8d19afa4d9ee715c6e30e655, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d36b7354a3096d499a96c8342df8990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10579,7 +10579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprites: []
   Stick: {fileID: 21300000, guid: af8c4c972e1e1814aa04b5fbee395866, type: 3}
-  Clay: {fileID: 21300000, guid: ad95b97b8d19afa4d9ee715c6e30e655, type: 3}
+  Grass: {fileID: 21300000, guid: 1d36b7354a3096d499a96c8342df8990, type: 3}
   Straw: {fileID: 21300000, guid: b3ac0e4a3f9cfe442b770037b2de03b2, type: 3}
   Wood: {fileID: 21300000, guid: 87a03e64fac43e74db7ae8eeb356bd08, type: 3}
   Stone: {fileID: 21300000, guid: 971cb96be2e2b034fa8ad249caaa811c, type: 3}
@@ -11122,7 +11122,7 @@ GameObject:
   - component: {fileID: 845836427}
   - component: {fileID: 845836426}
   m_Layer: 5
-  m_Name: Clay_Image
+  m_Name: Grass_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11167,7 +11167,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad95b97b8d19afa4d9ee715c6e30e655, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d36b7354a3096d499a96c8342df8990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17458,7 +17458,7 @@ MonoBehaviour:
   Stick_Amount: {fileID: 671790564}
   Wood_Amount: {fileID: 1981790785}
   Straw_Amount: {fileID: 492742580}
-  Clay_Amount: {fileID: 394127429}
+  Grass_Amount: {fileID: 394127429}
   Stone_Amount: {fileID: 863164446}
   Pebble_Amount: {fileID: 886450883}
   Iron_Amount: {fileID: 1735809234}
@@ -20062,7 +20062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771418842}
   m_Layer: 5
-  m_Name: Clay
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

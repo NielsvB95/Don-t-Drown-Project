@@ -19,7 +19,7 @@ public class QuizController : MonoBehaviour
         {"Stick", 0},
         {"Wood", 0},
         {"Stone", 0},
-        {"Clay", 0},
+        {"Grass", 0},
         {"Iron", 0},
         {"Straw", 0},
         {"Mushroom", 0},
@@ -90,10 +90,10 @@ public class QuizController : MonoBehaviour
             resultText += "Steen: 1\n";
             Inventory.Stone++;
         }
-        if (correctAnswers["Clay"] >= 3)
+        if (correctAnswers["Grass"] >= 3)
         {
-            resultText += "Klei: 1\n";
-            Inventory.Clay++;
+            resultText += "Gras: 1\n";
+            Inventory.Grass++;
         }
         if (correctAnswers["Iron"] >= 3)
         {

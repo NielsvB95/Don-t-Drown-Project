@@ -95,7 +95,7 @@ public class APIManager : MonoBehaviour
 
                 //Set inventory items with data from savegame
                 Inventory.Wood = saveData.Inventory.Wood;
-                Inventory.Clay = saveData.Inventory.Clay;
+                Inventory.Grass = saveData.Inventory.Grass;
                 Inventory.Stone = saveData.Inventory.Stone;
                 Inventory.Pebble = saveData.Inventory.Pebble;
                 Inventory.Iron = saveData.Inventory.Iron;
@@ -143,7 +143,7 @@ public class APIManager : MonoBehaviour
     public string MakeInventory()
     {
         int Wood = Inventory.Wood;
-        int Clay = Inventory.Clay;
+        int Grass = Inventory.Grass;
         int Stone = Inventory.Stone;
         int Pebble = Inventory.Pebble;
         int Iron = Inventory.Iron;
@@ -159,7 +159,7 @@ public class APIManager : MonoBehaviour
 
         string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\":\\\"" + SaveData.LevelUp + "\\\", \\\"Request\\\":\\\"" + SaveData.Request + "\\\", \\\"Inventory\\\": {" +
             "\\\"Wood\\\":" + Wood + "," +
-            "\\\"Clay\\\":" + Clay + "," +
+            "\\\"Grass\\\":" + Grass + "," +
             "\\\"Stone\\\":" + Stone + "," +
             "\\\"Pebble\\\":" + Pebble + "," +
             "\\\"Iron\\\":" + Iron + "," +

@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 53346050}
   - component: {fileID: 53346052}
   m_Layer: 0
-  m_Name: Clay_5
-  m_TagString: Clay
+  m_Name: Grass_5
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2584,7 +2584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251817345}
   m_Layer: 0
-  m_Name: Throttle
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8934,8 +8934,8 @@ GameObject:
   - component: {fileID: 1503581260}
   - component: {fileID: 1503581262}
   m_Layer: 0
-  m_Name: Clay_1
-  m_TagString: Clay
+  m_Name: Grass_1
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11875,8 +11875,8 @@ GameObject:
   - component: {fileID: 1824292055}
   - component: {fileID: 1824292057}
   m_Layer: 0
-  m_Name: Clay_4
-  m_TagString: Clay
+  m_Name: Grass_4
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12285,8 +12285,8 @@ GameObject:
   - component: {fileID: 1893246381}
   - component: {fileID: 1893246383}
   m_Layer: 0
-  m_Name: Clay_3
-  m_TagString: Clay
+  m_Name: Grass_3
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13363,8 +13363,8 @@ GameObject:
   - component: {fileID: 2093585804}
   - component: {fileID: 2093585806}
   m_Layer: 0
-  m_Name: Clay_2
-  m_TagString: Clay
+  m_Name: Grass_2
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

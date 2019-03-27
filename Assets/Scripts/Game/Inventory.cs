@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
         
     public static int Wood { get; set; }
-    public static int Clay { get; set; }
+    public static int Grass { get; set; }
     public static int Stone { get; set; }
     public static int Pebble{ get; set; }
     public static int Iron{ get; set; }

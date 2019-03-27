@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wood
-  - Clay
   - Stone
   - Iron
   - Stick
@@ -13,6 +12,7 @@ TagManager:
   - Mushroom
   - Flower
   - Pebble
+  - Grass
   layers:
   - Default
   - TransparentFX

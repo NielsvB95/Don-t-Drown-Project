@@ -6,7 +6,7 @@ using UnityEngine;
 public class SerializableInventory
 {
     public int Wood { get; set; }
-    public int Clay { get; set; }
+    public int Grass { get; set; }
     public int Stone { get; set; }
     public int Pebble { get; set; }
     public int Iron { get; set; }

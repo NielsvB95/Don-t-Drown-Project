@@ -6,7 +6,7 @@ public class HouseModel
 {
     public int Stick { get; set; }
     public int Straw { get; set; }
-    public int Clay { get; set; }
+    public int Grass { get; set; }
     public int Stone { get; set; }
     public int Iron { get; set; }
     public int Wood { get; set; }
@@ -34,18 +34,18 @@ public class HouseModel
         Stick = 2,
         Straw = 2,
         Wood = 5,
-        Clay = 5
+        Grass = 5
     };
     public static HouseModel houseModel_6 = new HouseModel()
     {
         Wood = 5,
-        Clay = 5,
+        Grass = 5,
         Stone = 2
     };
     public static HouseModel houseModel_7 = new HouseModel()
     {
         Wood = 8,
-        Clay = 2,
+        Grass = 2,
         Stone = 5
     };
     public static HouseModel houseModel_8 = new HouseModel()

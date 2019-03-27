@@ -30,7 +30,7 @@ public class QuestionTrigger : MonoBehaviour
                     break;
                 case "Stick":
                 case "Pebble":
-                case "Clay":
+                case "Grass":
                 case "Flower":
                 case "Mushroom":
                     allowed = true;

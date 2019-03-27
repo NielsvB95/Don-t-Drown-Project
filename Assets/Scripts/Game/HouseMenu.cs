@@ -11,7 +11,7 @@ public class HouseMenu : MonoBehaviour
     public List<Sprite> Sprites;
 
     public Sprite Stick;
-    public Sprite Clay;
+    public Sprite Grass;
     public Sprite Straw;
     public Sprite Wood;
     public Sprite Stone;
@@ -173,24 +173,24 @@ public class HouseMenu : MonoBehaviour
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stick.ToString();
             HouseKost_2.text = UpgradeRequirements[HouseLevel].Straw.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
-            HouseKost_4.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+            HouseKost_4.text = UpgradeRequirements[HouseLevel].Grass.ToString();
         }
         else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_6.HouseImage)
         {
             Resource_4.enabled = false;
             HouseKost_4.enabled = false;
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
-            HouseKost_2.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Grass.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
             Resource_1.gameObject.GetComponent<Image>().sprite = Stone;
-            Resource_2.gameObject.GetComponent<Image>().sprite = Clay;
+            Resource_2.gameObject.GetComponent<Image>().sprite = Grass;
         }
         else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_7.HouseImage)
         {
             Resource_4.enabled = false;
             HouseKost_4.enabled = false;
             HouseKost_1.text = UpgradeRequirements[HouseLevel].Stone.ToString();
-            HouseKost_2.text = UpgradeRequirements[HouseLevel].Clay.ToString();
+            HouseKost_2.text = UpgradeRequirements[HouseLevel].Grass.ToString();
             HouseKost_3.text = UpgradeRequirements[HouseLevel].Wood.ToString();
         }
         else if (UpgradeHouse.HouseImage == HouseSpriteRecipe.House_8.HouseImage)
@@ -229,14 +229,14 @@ public class HouseMenu : MonoBehaviour
     public void ChangeHouse()
     {
         if (Inventory.Stick >= UpgradeRequirements[HouseLevel].Stick && Inventory.Straw >= UpgradeRequirements[HouseLevel].Straw &&
-            Inventory.Clay >= UpgradeRequirements[HouseLevel].Clay && Inventory.Wood >= UpgradeRequirements[HouseLevel].Wood &&
+            Inventory.Grass >= UpgradeRequirements[HouseLevel].Grass && Inventory.Wood >= UpgradeRequirements[HouseLevel].Wood &&
             Inventory.Iron >= UpgradeRequirements[HouseLevel].Iron && Inventory.Pebble >= UpgradeRequirements[HouseLevel].Pebble &&
             Inventory.Stone >= UpgradeRequirements[HouseLevel].Stone)
         {
             Inventory.Stick -= UpgradeRequirements[HouseLevel].Stick;
             Inventory.Straw -= UpgradeRequirements[HouseLevel].Straw;
             Inventory.Stone -= UpgradeRequirements[HouseLevel].Stone;
-            Inventory.Clay -= UpgradeRequirements[HouseLevel].Clay;
+            Inventory.Grass -= UpgradeRequirements[HouseLevel].Grass;
             Inventory.Wood -= UpgradeRequirements[HouseLevel].Wood;
             Inventory.Iron -= UpgradeRequirements[HouseLevel].Iron;
             Inventory.Pebble -= UpgradeRequirements[HouseLevel].Pebble;
