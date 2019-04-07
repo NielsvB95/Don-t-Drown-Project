@@ -37,9 +37,9 @@ public class APIManager : MonoBehaviour
         
     }
 
-    private void LoadQuizData()
+    private void LoadQuizData(int playerLevel)
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag");
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag/game/" + playerLevel.ToString());
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string jsonResponse = reader.ReadToEnd();
@@ -51,9 +51,6 @@ public class APIManager : MonoBehaviour
 
     public void Login()
     {
-        //Load questions and answers
-        LoadQuizData();
-
         //Retrieve user data from API
         string username = usernameField.text;
         string password = passwordField.text;
@@ -90,8 +87,13 @@ public class APIManager : MonoBehaviour
                 SaveData.Level = saveData.Level;
                 SaveData.LevelUp = saveData.LevelUp;
                 SaveData.Request = saveData.Request;
+                SaveData.WisdomLevel = saveData.WisdomLevel;
+                SaveData.MushroomSpawn = saveData.MushroomSpawn;
 
                 CheckLevelup();
+
+                //Load questions and answers
+                LoadQuizData(SaveData.Level);
 
                 //Set inventory items with data from savegame
                 Inventory.Wood = saveData.Inventory.Wood;
@@ -157,7 +159,7 @@ public class APIManager : MonoBehaviour
         bool Pitchfork = Inventory.Pitchfork;
         bool Pickaxe = Inventory.Pickaxe;
 
-        string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\":\\\"" + SaveData.LevelUp + "\\\", \\\"Request\\\":\\\"" + SaveData.Request + "\\\", \\\"Inventory\\\": {" +
+        string json = "\"{\\\"Level\\\": " + SaveData.Level + ", \\\"LevelUp\\\":\\\"" + SaveData.LevelUp + "\\\", \\\"Request\\\":\\\"" + SaveData.Request + "\\\", \\\"WisdomLevel\\\": " + SaveData.WisdomLevel + ", \\\"MushroomSpawn\\\": " + SaveData.MushroomSpawn + ", \\\"Inventory\\\": {" +
             "\\\"Wood\\\":" + Wood + "," +
             "\\\"Grass\\\":" + Grass + "," +
             "\\\"Stone\\\":" + Stone + "," +
