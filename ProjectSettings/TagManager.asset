@@ -13,6 +13,7 @@ TagManager:
   - Flower
   - Pebble
   - Grass
+  - Gemstone
   layers:
   - Default
   - TransparentFX

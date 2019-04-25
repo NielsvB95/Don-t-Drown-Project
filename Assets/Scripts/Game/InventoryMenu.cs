@@ -9,6 +9,7 @@ public class InventoryMenu : MonoBehaviour {
     public static bool InventoryCheck = false;
 
     public GameObject activeMenu;
+    public GameObject InGameCanvas;
 
     public GameObject AxeCheck;
     public GameObject PitchforkCheck;
@@ -95,6 +96,7 @@ public class InventoryMenu : MonoBehaviour {
     public void Resume()
     {
         activeMenu.SetActive(false);
+        InGameCanvas.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }

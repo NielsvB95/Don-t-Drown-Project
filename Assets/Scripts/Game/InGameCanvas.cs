@@ -13,6 +13,7 @@ public class InGameCanvas : MonoBehaviour {
     public void OpenInventoryMenu()
     {
         InventoryMenu.InventoryCheck = true;
+        gameObject.SetActive(false);
     }
     public void OpenPopup()
     {

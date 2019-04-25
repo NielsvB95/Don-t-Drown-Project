@@ -23,6 +23,7 @@ public class QuestionTrigger : MonoBehaviour
                     break;
                 case "Stone":
                 case "Iron":
+                case "Gemstone":
                     allowed = Inventory.Pickaxe;
                     break;
                 case "Straw":

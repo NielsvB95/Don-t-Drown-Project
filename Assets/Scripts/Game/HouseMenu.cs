@@ -38,6 +38,7 @@ public class HouseMenu : MonoBehaviour
     public GameObject activeMenu;
     public GameObject popUp1;
     public GameObject popUp2;
+    public GameObject InGameCanvas;
 
     private int Index;
 
@@ -89,6 +90,7 @@ public class HouseMenu : MonoBehaviour
     public void Resume()
     {
         activeMenu.SetActive(false);
+        InGameCanvas.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
