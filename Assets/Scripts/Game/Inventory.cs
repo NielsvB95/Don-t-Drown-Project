@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
         
+    //Resources
     public static int Wood { get; set; }
     public static int Grass { get; set; }
     public static int Stone { get; set; }
@@ -14,10 +15,14 @@ public class Inventory : MonoBehaviour {
     public static int Flower{ get; set; }
     public static int Mushroom{ get; set; }
     public static int Gemstone{ get; set; }
-    //public static int StrengthPotion { get; set; }
-    //public static int ConstitutionPotion { get; set; }
-    //public static int IntelligencePotion { get; set; }
+
+    //Potions
+    public static int ConstitutionPotion { get; set; }
+    public static int IntelligencePotion { get; set; }
+    public static int StrengthPotion { get; set; }
     public static int WisdomPotion { get; set; }
+
+    //Tools
     public static bool Axe { get; set; }
     public static bool Pitchfork { get; set; }
     public static bool Pickaxe { get; set; }

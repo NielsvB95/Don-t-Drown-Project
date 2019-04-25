@@ -715,6 +715,7 @@ MonoBehaviour:
   activeMenu: {fileID: 1696050780}
   otherMenu: {fileID: 1357409134}
   popUp: {fileID: 1017325436}
+  InGameCanvas: {fileID: 109305408}
   StrengthAmount_1: {fileID: 1511878826}
   StrengthAmount_2: {fileID: 24448935}
   StrengthAmount_3: {fileID: 1655505451}
@@ -2810,6 +2811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1989782441}
+  InGameCanvas: {fileID: 109305408}
 --- !u!212 &171203921
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5209,7 +5211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8955,6 +8957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1989782441}
+  InGameCanvas: {fileID: 109305408}
 --- !u!1 &657770850
 GameObject:
   m_ObjectHideFlags: 0
@@ -9417,6 +9420,7 @@ MonoBehaviour:
   activeMenu: {fileID: 1357409134}
   otherMenu: {fileID: 1696050780}
   popUp: {fileID: 182807479}
+  InGameCanvas: {fileID: 109305408}
   popUpText: {fileID: 2095716005}
   AxeAmount_1: {fileID: 489938510}
   AxeAmount_2: {fileID: 1218457998}
@@ -9877,7 +9881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10592,6 +10596,7 @@ MonoBehaviour:
   activeMenu: {fileID: 730975251}
   popUp1: {fileID: 1689400796}
   popUp2: {fileID: 1371087747}
+  InGameCanvas: {fileID: 109305408}
   HouseKost_1: {fileID: 256053641}
   HouseKost_2: {fileID: 501094197}
   HouseKost_3: {fileID: 371590580}
@@ -15633,7 +15638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17450,6 +17455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeMenu: {fileID: 347877122}
+  InGameCanvas: {fileID: 109305408}
   AxeCheck: {fileID: 1750316268}
   PitchforkCheck: {fileID: 497853508}
   PickaxeCheck: {fileID: 1195319829}
@@ -19160,7 +19166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

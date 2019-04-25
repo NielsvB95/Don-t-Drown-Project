@@ -8,6 +8,7 @@ public class OtherMaterialsMenu : MonoBehaviour {
     public GameObject activeMenu;
     public GameObject otherMenu;
     public GameObject popUp;
+    public GameObject InGameCanvas;
 
     private int StrengthAmountInt_1 = 1;
     private int StrengthAmountInt_2 = 1;
@@ -51,6 +52,7 @@ public class OtherMaterialsMenu : MonoBehaviour {
     {
         activeMenu.SetActive(false);
         CraftingMenu.WorkBench = false;
+        InGameCanvas.SetActive(true);
         Time.timeScale = 1f;
         Debug.Log("Resume OtherMenu is called");
     }

@@ -12,6 +12,7 @@ public class CraftingMenu : MonoBehaviour {
     public GameObject activeMenu;
     public GameObject otherMenu;
     public GameObject popUp;
+    public GameObject InGameCanvas;
 
     private int AxeAmountInt_1 = 3;
     private int AxeAmountInt_2 = 3;
@@ -63,6 +64,7 @@ public class CraftingMenu : MonoBehaviour {
     public void Resume()
     {
         activeMenu.SetActive(false);
+        InGameCanvas.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }

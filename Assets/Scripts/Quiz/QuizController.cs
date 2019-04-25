@@ -13,6 +13,10 @@ public class QuizController : MonoBehaviour
     public float timeLimit;
     public GameObject questionDisplay;
     public GameObject missingToolPanel;
+    public GameObject randomChanceResourceOne;
+    public GameObject randomChanceResourceTwo;
+    public GameObject randomChanceResourceThree;
+    public int forceSpawnAfter;
     public APIManager apiManager;
     public Dictionary<string, int> correctAnswers = new Dictionary<string, int>
     {
@@ -24,6 +28,7 @@ public class QuizController : MonoBehaviour
         {"Straw", 0},
         {"Mushroom", 0},
         {"Flower", 0},
+        {"Gemstone", 0},
         {"Pebble", 0}
     };
 
@@ -34,10 +39,88 @@ public class QuizController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        SpawnRandomChanceResource();
         Time.timeScale = 1f;
         timeRemaining = timeLimit;
         UpdateTimeRemainingDisplay();
         isQuizActive = true;
+    }
+
+    public void SpawnRandomChanceResource()
+    {
+        bool forceSpawn = false;
+        bool spawned = false;
+        int randomNumber = Random.Range(0, 100);
+        string scene = SceneManager.GetActiveScene().name;
+        
+        switch (scene)
+        {
+            case "Forrest":
+                if(SaveData.MushroomSpawn >= forceSpawnAfter)
+                {
+                    forceSpawn = true;
+                }
+                break;
+            case "Cave":
+                if (SaveData.GemstoneSpawn >= forceSpawnAfter)
+                {
+                    forceSpawn = true;
+                }
+                break;
+            case "Meadow":
+                if (SaveData.FlowerSpawn >= forceSpawnAfter)
+                {
+                    forceSpawn = true;
+                }
+                break;
+        }
+
+        if (randomNumber < 5 || forceSpawn == true)
+        {
+            randomChanceResourceOne.SetActive(true);
+            spawned = true;
+        }
+        else if (randomNumber < 10)
+        {
+            randomChanceResourceTwo.SetActive(true);
+            spawned = true;
+        }
+        else if (randomNumber < 15)
+        {
+            randomChanceResourceThree.SetActive(true);
+            spawned = true;
+        }
+        else
+        {
+            switch (scene)
+            {
+                case "Forrest":
+                    SaveData.MushroomSpawn++;
+                    break;
+                case "Cave":
+                    SaveData.GemstoneSpawn++;
+                    break;
+                case "Meadow":
+                    SaveData.FlowerSpawn++;
+                    break;
+            }
+        }
+
+        if (spawned == true)
+        {
+            switch (scene)
+            {
+                case "Forrest":
+                    SaveData.MushroomSpawn = 0;
+                    break;
+                case "Cave":
+                    SaveData.GemstoneSpawn = 0;
+                    break;
+                case "Meadow":
+                    SaveData.FlowerSpawn = 0;
+                    break;
+            }
+        }
     }
 
     public void EndQuiz()
@@ -110,10 +193,15 @@ public class QuizController : MonoBehaviour
             resultText += "Paddenstoel: 1\n";
             Inventory.Mushroom++;
         }
-        if (correctAnswers["Flower"] >= 3)
+        if (correctAnswers["Flower"] >= 1)
         {
             resultText += "Bloem: 1\n";
             Inventory.Flower++;
+        }
+        if (correctAnswers["Gemstone"] >= 1)
+        {
+            resultText += "Edelsteen: 1\n";
+            Inventory.Gemstone++;
         }
     }
 
