@@ -41,6 +41,7 @@ public class CraftingMenu : MonoBehaviour {
         PitchforkAmount_2.text = PitchforkAmountInt_2 + "x";
         PickaxeAmount_1.text = PickaxeAmountInt_1 + "x";
         PickaxeAmount_2.text = PickaxeAmountInt_2 + "x";
+        checkAllMaterials();
     }
 
     // Update is called once per frame
@@ -81,9 +82,28 @@ public class CraftingMenu : MonoBehaviour {
         otherMenu.SetActive(true);
     }
 
+    public void checkAllMaterials()
+    {
+        checkMaterials(AxeAmount_1, AxeAmount_2, Inventory.Stick, Inventory.Pebble, AxeAmountInt_1, AxeAmountInt_2);
+        checkMaterials(PitchforkAmount_1, PitchforkAmount_2, Inventory.Stick, Inventory.Pebble, PitchforkAmountInt_1, PitchforkAmountInt_2);
+        checkMaterials(PickaxeAmount_1, PickaxeAmount_2, Inventory.Stick, Inventory.Pebble, PickaxeAmountInt_1, PickaxeAmountInt_2);
+    }
+
+    public void checkMaterials(Text firstMaterial, Text secondMaterial, int firstItem, int secondItem, int firstAmount, int secondAmount)
+    {
+        Debug.Log("check materials");
+        if (firstItem < firstAmount)
+        {
+            firstMaterial.color = Color.red;
+        }
+        if (secondItem < secondAmount)
+        {
+            secondMaterial.color = Color.red;
+        }
+    }
+
     public void checkAxeMaterials()
     {
-        Debug.Log("Axe call");
         if(Inventory.Stick >= AxeAmountInt_1 && Inventory.Pebble >= AxeAmountInt_2 && Inventory.Axe == false)
         {
             Inventory.Stick = Inventory.Stick - AxeAmountInt_1;
@@ -100,6 +120,7 @@ public class CraftingMenu : MonoBehaviour {
             popUpText.text = "Je hebt niet genoeg materialen";
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
 
     public void checkPitchforkMaterials()
@@ -120,6 +141,7 @@ public class CraftingMenu : MonoBehaviour {
             popUpText.text = "Je hebt niet genoeg materialen";
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
 
     public void checkPickAxeMaterial()
@@ -140,6 +162,7 @@ public class CraftingMenu : MonoBehaviour {
             popUpText.text = "Je hebt niet genoeg materialen";
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
 
     public void ClosePopup()

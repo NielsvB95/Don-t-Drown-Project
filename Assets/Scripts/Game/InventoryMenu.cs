@@ -16,9 +16,11 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject PickaxeCheck;
     public GameObject popUp;
 
-    private int WisdomSkillInt = 0;
-
+    public Text StrengthSkill;
+    public Text ConstitutionSkill;
+    public Text IntelligenceSkill;
     public Text WisdomSkill;
+
     public Text Stick_Amount;
     public Text Wood_Amount;
     public Text Straw_Amount;
@@ -30,9 +32,9 @@ public class InventoryMenu : MonoBehaviour {
     public Text Mushroom_Amount;
     public Text Gemstone_Amount;
 
-    //public Text StrengthPotion_Amount;
-    //public Text ConstitutionPotion_Amount;
-    //public Text IntelligencePotion_Amount;
+    public Text StrengthPotion_Amount;
+    public Text ConstitutionPotion_Amount;
+    public Text IntelligencePotion_Amount;
     public Text WisdomPotion_Amount;
 
     void Start()
@@ -52,11 +54,14 @@ public class InventoryMenu : MonoBehaviour {
         Flower_Amount.text = Inventory.Flower + "x";
         Mushroom_Amount.text = Inventory.Mushroom + "x";
         Gemstone_Amount.text = Inventory.Gemstone + "x";
-        //StrengthPotion_Amount.text = StrengthPotion + "x";
-        //ConstitutionPotion_Amount.text = ConstitutionPotion + "x";
-        //IntelligencePotion_Amount.text = IntelligencePotion + "x";
+        StrengthPotion_Amount.text = Inventory.StrengthPotion + "x";
+        ConstitutionPotion_Amount.text = Inventory.ConstitutionPotion + "x";
+        IntelligencePotion_Amount.text = Inventory.IntelligencePotion + "x";
         WisdomPotion_Amount.text = Inventory.WisdomPotion + "x";
-        WisdomSkill.text = WisdomSkillInt + "";
+        StrengthSkill.text = SaveData.StrengthLevel + "";
+        ConstitutionSkill.text = SaveData.ConstitutionLevel + "";
+        IntelligenceSkill.text = SaveData.IntelligenceLevel + "";
+        WisdomSkill.text = SaveData.WisdomLevel + "";
 
 
         if (Inventory.Axe)
@@ -75,7 +80,6 @@ public class InventoryMenu : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (InventoryCheck)
@@ -108,14 +112,59 @@ public class InventoryMenu : MonoBehaviour {
         Time.timeScale = 0f;
     }
     
-    public void checkPotion()
+    public void checkStrengthPotion()
     {
-        if(Inventory.WisdomPotion > 0)
+        if(Inventory.StrengthPotion > 0)
         {
-            WisdomSkillInt += 1;
-            Inventory.WisdomPotion -= 1;
+            SaveData.StrengthLevel ++;
+            Inventory.StrengthPotion --;
+            StrengthPotion_Amount.text = Inventory.StrengthPotion + "x";
+            StrengthSkill.text = SaveData.StrengthLevel + "";
+        }
+        else
+        {
+            popUp.SetActive(true);
+        }
+    }
+
+    public void checkConstitutionPotion()
+    {
+        if (Inventory.ConstitutionPotion > 0)
+        {
+            SaveData.ConstitutionLevel ++;
+            Inventory.ConstitutionPotion --;
+            ConstitutionPotion_Amount.text = Inventory.ConstitutionPotion + "x";
+            ConstitutionSkill.text = SaveData.ConstitutionLevel + "";
+        }
+        else
+        {
+            popUp.SetActive(true);
+        }
+    }
+
+    public void checkIntelligencePotion()
+    {
+        if (Inventory.IntelligencePotion > 0)
+        {
+            SaveData.IntelligenceLevel ++;
+            Inventory.IntelligencePotion --;
+            IntelligencePotion_Amount.text = Inventory.IntelligencePotion + "x";
+            IntelligenceSkill.text = SaveData.IntelligenceLevel + "";
+        }
+        else
+        {
+            popUp.SetActive(true);
+        }
+    }
+
+    public void checkWisdomPotion()
+    {
+        if (Inventory.WisdomPotion > 0)
+        {
+            SaveData.WisdomLevel ++;
+            Inventory.WisdomPotion --;
             WisdomPotion_Amount.text = Inventory.WisdomPotion + "x";
-            WisdomSkill.text = WisdomSkillInt + "";
+            WisdomSkill.text = SaveData.WisdomLevel + "";
         }
         else
         {

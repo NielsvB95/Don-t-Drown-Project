@@ -44,10 +44,11 @@ public class OtherMaterialsMenu : MonoBehaviour {
         IntelligenceAmount_2.text = IntelligenceAmountInt_2 + "x";
 
         WisdomAmount_1.text = WisdomAmountInt_1 + "x";
+        checkAllMaterials();
     }
 
     // Update is called once per frame
-    
+
     public void Resume()
     {
         activeMenu.SetActive(false);
@@ -63,11 +64,36 @@ public class OtherMaterialsMenu : MonoBehaviour {
         otherMenu.SetActive(true);
     }
 
-    public void checkWisdomPotionMaterials()
+    public void checkAllMaterials()
+    {
+        checkMaterials(StrengthAmount_1, StrengthAmount_2, StrengthAmount_3, Inventory.Flower, Inventory.Mushroom, Inventory.Gemstone, StrengthAmountInt_1, StrengthAmountInt_2, StrengthAmountInt_3);
+        checkMaterials(ConstitutionAmount_1, null, null, Inventory.Flower, 0, 0, ConstitutionAmountInt_1, 0, 0);
+        checkMaterials(IntelligenceAmount_1, IntelligenceAmount_2, null, Inventory.Mushroom, Inventory.Flower, 0, IntelligenceAmountInt_1, IntelligenceAmountInt_2, 0);
+        checkMaterials(WisdomAmount_1, null, null, Inventory.Gemstone, 0, 0, WisdomAmountInt_1, 0, 0);
+    }
+
+    public void checkMaterials(Text firstMaterial, Text secondMaterial, Text thirdMaterial, int firstItem, int secondItem, int thridItem, int firstAmount, int secondAmount, int thirdAmount)
+    {
+        Debug.Log("check materials");
+        if (firstItem < firstAmount)
+        {
+            firstMaterial.color = Color.red;
+        }
+        if (secondItem < secondAmount)
+        {
+            secondMaterial.color = Color.red;
+        }
+        if (thridItem < thirdAmount)
+        {
+            thirdMaterial.color = Color.red;
+        }
+    }
+
+    public void checkStrengthPotionMaterials()
     {
         if (Inventory.Flower >= StrengthAmountInt_1 && Inventory.Mushroom >= StrengthAmountInt_2 && Inventory.Gemstone >= StrengthAmountInt_3)
         {
-            Inventory.WisdomPotion += 1;
+            Inventory.StrengthPotion += 1;
             Inventory.Flower -= StrengthAmountInt_1;
             Inventory.Mushroom -= StrengthAmountInt_2;
             Inventory.Gemstone -= StrengthAmountInt_3;
@@ -76,8 +102,9 @@ public class OtherMaterialsMenu : MonoBehaviour {
         {
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
-    /*
+
     public void checkConstitutionPotionMaterials()
     {
         if(Inventory.Flower == ConstitutionAmountInt_1)
@@ -89,6 +116,7 @@ public class OtherMaterialsMenu : MonoBehaviour {
         {
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
 
     public void checkIntelligencePotionMaterials()
@@ -103,9 +131,10 @@ public class OtherMaterialsMenu : MonoBehaviour {
         {
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
     
-    public void checkStrengthPotionMaterials()
+    public void checkWisdomPotionMaterials()
     {
         if (Inventory.Gemstone >= WisdomAmountInt_1)
         {
@@ -116,8 +145,9 @@ public class OtherMaterialsMenu : MonoBehaviour {
         {
             popUp.SetActive(true);
         }
+        checkAllMaterials();
     }
-    */
+
     public void ClosePopup()
     {
         popUp.SetActive(false);
