@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ public class HouseMenu : MonoBehaviour
 
     private HouseSpriteRecipe CurrentHouse;
     private HouseSpriteRecipe UpgradeHouse;
+    private List<object> HouseSpriteRecipes;
 
     public GameObject House;
 
@@ -64,6 +66,7 @@ public class HouseMenu : MonoBehaviour
         SetHouse();
         MakeHousePlans();
         ChangeCosts();
+        //GetHouseSpriteRecipes();
     }
 
     void FixedUpdate()
@@ -267,5 +270,26 @@ public class HouseMenu : MonoBehaviour
     {
         popUp1.SetActive(false);
         popUp2.SetActive(false);
+    }
+
+    public void GetHouseSpriteRecipes()
+    {
+        HouseSpriteRecipes = new List<object>();
+        HouseSpriteRecipe myInstance = new HouseSpriteRecipe();
+        Type myType = typeof(HouseSpriteRecipe);
+        FieldInfo[] fields = typeof(HouseSpriteRecipe).GetFields();
+       
+        for (int i = 0; i < fields.Length; i++)
+        {
+            if (fields[i].FieldType == typeof(HouseSpriteRecipe))
+            {
+                Debug.Log("Field contains:" + fields[i].GetValue(myInstance).GetType());
+                HouseSpriteRecipes.Add(fields[i].GetValue(myInstance));
+            }
+        }
+        foreach(HouseSpriteRecipe House in HouseSpriteRecipes)
+        {
+            Debug.Log("Field contains:" + House.House_id);
+        }
     }
 }
