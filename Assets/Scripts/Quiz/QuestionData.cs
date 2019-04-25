@@ -7,7 +7,7 @@ public class QuestionData {
     public int Id;
     public string Vraag;
     public int Type;
-    public AnswerData[] Antwoorden;
+    public List<AnswerData> Antwoorden;
     public string Hint;
     public int MinLevel;
     public int MaxLevel;

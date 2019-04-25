@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionTrigger : MonoBehaviour
 {
     public GameObject Player;
     public QuestionController questionController;
-    public GameObject missingToolPanel;
+    public GameObject warningPanel;
+    public Text warningPanelText;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == Player)
@@ -40,11 +43,28 @@ public class QuestionTrigger : MonoBehaviour
 
             if (allowed)
             {
-                questionController.ShowQuestion(gameObject);
+                switch (resource)
+                {
+                    case "Iron":
+                        if(SaveData.WisdomLevel < 6)
+                        {
+                            warningPanelText.text = "Je wisdom moet minimaal level 6 zijn om deze grondstof te verzamelen.";
+                            warningPanel.SetActive(true);
+                        }
+                        else
+                        {
+                            questionController.ShowQuestion(gameObject);
+                        }
+                        break;
+                    default:
+                        questionController.ShowQuestion(gameObject);
+                        break;
+                }
             }
             else
             {
-                missingToolPanel.SetActive(true);
+                warningPanelText.text = "Je bezit niet het juiste gereedschap om deze grondstof te verzamelen.";
+                warningPanel.SetActive(true);
             }
         }
     }

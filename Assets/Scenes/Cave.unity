@@ -485,7 +485,7 @@ MonoBehaviour:
   quizEndDisplay: {fileID: 78066345}
   quizEndDisplayText: {fileID: 539415871}
   endQuizButton: {fileID: 224993332}
-  timeLimit: 120
+  baseTimeLimit: 120
   questionDisplay: {fileID: 1315918653}
   missingToolPanel: {fileID: 1905417488}
   randomChanceResourceOne: {fileID: 584235384}
@@ -1727,7 +1727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &584235384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &584235387
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3380,7 +3382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &953072219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,7 +3668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &993325556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,7 +3939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &999589720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4323,7 +4328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1057985614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +4862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1108523432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5159,7 +5166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1173481445
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6106,7 +6114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1452370700
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6352,7 +6361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1496121996
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6609,7 +6619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1530022264
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7395,7 +7406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1643304517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,7 +7490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1650122767
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7821,7 +7834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1709361673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,7 +8177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1721361677
 GameObject:
   m_ObjectHideFlags: 0
@@ -8412,7 +8427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1755318739
 GameObject:
   m_ObjectHideFlags: 0
@@ -8591,7 +8607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!1 &1771433178
 GameObject:
   m_ObjectHideFlags: 0
@@ -9000,7 +9017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 993325556}
   questionController: {fileID: 1658739265}
-  missingToolPanel: {fileID: 1905417488}
+  warningPanel: {fileID: 1905417488}
+  warningPanelText: {fileID: 1025512438}
 --- !u!60 &1847836160
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9211,7 +9229,7 @@ GameObject:
   - component: {fileID: 1905417490}
   - component: {fileID: 1905417489}
   m_Layer: 5
-  m_Name: MissingToolPanel
+  m_Name: WarningPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

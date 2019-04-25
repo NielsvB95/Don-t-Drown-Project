@@ -10,7 +10,7 @@ public class QuizController : MonoBehaviour
     public GameObject quizEndDisplay;
     public Text quizEndDisplayText;
     public GameObject endQuizButton;
-    public float timeLimit;
+    public float baseTimeLimit;
     public GameObject questionDisplay;
     public GameObject missingToolPanel;
     public GameObject randomChanceResourceOne;
@@ -41,7 +41,7 @@ public class QuizController : MonoBehaviour
     {
         SpawnRandomChanceResource();
         Time.timeScale = 1f;
-        timeRemaining = timeLimit;
+        timeRemaining = baseTimeLimit + SaveData.ConstitutionLevel * 10;
         UpdateTimeRemainingDisplay();
         isQuizActive = true;
     }

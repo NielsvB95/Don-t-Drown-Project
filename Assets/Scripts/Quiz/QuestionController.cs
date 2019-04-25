@@ -47,8 +47,47 @@ public class QuestionController : MonoBehaviour
         {
             hintText.text = "Geen hint beschikbaar.";
         }
+
+        int answerAmount = questionData.Antwoorden.Count;
+        int intelligenceLevel = SaveData.IntelligenceLevel;
+
+        if (intelligenceLevel >= 6)
+        {
+            answerAmount = answerAmount - 3;
+        }
+        else if (intelligenceLevel >= 3)
+        {
+            answerAmount = answerAmount - 2;
+        }
+        else if (intelligenceLevel >= 1)
+        {
+            answerAmount = answerAmount - 1;
+        }
+
+        if (answerAmount < 3)
+        {
+            if (questionData.Antwoorden.Count >= 3)
+            {
+                answerAmount = 3;
+            }
+            else
+            {
+                answerAmount = questionData.Antwoorden.Count;
+            }
+        }
+
+        int index = 0;
+        while (questionData.Antwoorden.Count > answerAmount)
+        {
+            if(questionData.Antwoorden[index].Correctness != 1)
+            {
+                questionData.Antwoorden.Remove(questionData.Antwoorden[index]);
+            }
+            index++;
+        }
+
         questionData.Antwoorden.Shuffle();
-        for (int i = 0; i < questionData.Antwoorden.Length; i++)
+        for (int i = 0; i < questionData.Antwoorden.Count; i++)
         {
             GameObject answerButtonGameObject = answerButtonObjectPool.GetObject();
             answerButtonGameObjects.Add(answerButtonGameObject);
