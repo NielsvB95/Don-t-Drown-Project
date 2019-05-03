@@ -16,8 +16,8 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject PickaxeCheck;
     public GameObject popUp;
 
-    public Text StrengthSkill;
-    public Text ConstitutionSkill;
+    public Text GatheringSkill;
+    public Text EnduranceSkill;
     public Text IntelligenceSkill;
     public Text WisdomSkill;
 
@@ -32,8 +32,8 @@ public class InventoryMenu : MonoBehaviour {
     public Text Mushroom_Amount;
     public Text Gemstone_Amount;
 
-    public Text StrengthPotion_Amount;
-    public Text ConstitutionPotion_Amount;
+    public Text GatheringPotion_Amount;
+    public Text Endurance_Potion_Amount;
     public Text IntelligencePotion_Amount;
     public Text WisdomPotion_Amount;
 
@@ -54,12 +54,12 @@ public class InventoryMenu : MonoBehaviour {
         Flower_Amount.text = Inventory.Flower + "x";
         Mushroom_Amount.text = Inventory.Mushroom + "x";
         Gemstone_Amount.text = Inventory.Gemstone + "x";
-        StrengthPotion_Amount.text = Inventory.StrengthPotion + "x";
-        ConstitutionPotion_Amount.text = Inventory.ConstitutionPotion + "x";
+        GatheringPotion_Amount.text = Inventory.GatheringPotion + "x";
+        Endurance_Potion_Amount.text = Inventory.EndurancePotion + "x";
         IntelligencePotion_Amount.text = Inventory.IntelligencePotion + "x";
         WisdomPotion_Amount.text = Inventory.WisdomPotion + "x";
-        StrengthSkill.text = SaveData.StrengthLevel + "";
-        ConstitutionSkill.text = SaveData.ConstitutionLevel + "";
+        GatheringSkill.text = SaveData.GatheringLevel + "";
+        EnduranceSkill.text = SaveData.EnduranceLevel + "";
         IntelligenceSkill.text = SaveData.IntelligenceLevel + "";
         WisdomSkill.text = SaveData.WisdomLevel + "";
 
@@ -112,14 +112,14 @@ public class InventoryMenu : MonoBehaviour {
         Time.timeScale = 0f;
     }
     
-    public void checkStrengthPotion()
+    public void checkGatheringPotion()
     {
-        if(Inventory.StrengthPotion > 0)
+        if(Inventory.GatheringPotion > 0)
         {
-            SaveData.StrengthLevel ++;
-            Inventory.StrengthPotion --;
-            StrengthPotion_Amount.text = Inventory.StrengthPotion + "x";
-            StrengthSkill.text = SaveData.StrengthLevel + "";
+            SaveData.GatheringLevel ++;
+            Inventory.GatheringPotion --;
+            GatheringPotion_Amount.text = Inventory.GatheringPotion + "x";
+            GatheringSkill.text = SaveData.GatheringLevel + "";
         }
         else
         {
@@ -127,14 +127,14 @@ public class InventoryMenu : MonoBehaviour {
         }
     }
 
-    public void checkConstitutionPotion()
+    public void checkEndurancePotion()
     {
-        if (Inventory.ConstitutionPotion > 0)
+        if (Inventory.EndurancePotion > 0)
         {
-            SaveData.ConstitutionLevel ++;
-            Inventory.ConstitutionPotion --;
-            ConstitutionPotion_Amount.text = Inventory.ConstitutionPotion + "x";
-            ConstitutionSkill.text = SaveData.ConstitutionLevel + "";
+            SaveData.EnduranceLevel ++;
+            Inventory.EndurancePotion --;
+            Endurance_Potion_Amount.text = Inventory.EndurancePotion + "x";
+            EnduranceSkill.text = SaveData.EnduranceLevel + "";
         }
         else
         {

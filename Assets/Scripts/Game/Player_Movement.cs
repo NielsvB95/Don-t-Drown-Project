@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour {
 
+    public Animator animator;
     public float moveSpeed = 2f;
     public static bool hasAxe = false;
     public static bool hasPickaxe = false;
@@ -47,6 +48,15 @@ public class Player_Movement : MonoBehaviour {
         if (Input.GetAxisRaw("Horizontal") < 0.0f)
         {
             spriteRenderer.flipX = true;
+        }
+
+        if(Mathf.Abs(Input.GetAxisRaw("Vertical")) > Mathf.Abs(Input.GetAxisRaw("Horizontal")))
+        {
+            animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Vertical")));
+        }
+        else
+        {
+            animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
         }
     }
 }

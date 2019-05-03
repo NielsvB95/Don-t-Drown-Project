@@ -39,8 +39,7 @@ public class APIManager : MonoBehaviour
 
     private void LoadQuizData(int playerLevel)
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag/");
-        //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag/game/" + playerLevel.ToString());
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dontdrown.nl/api/vraag/game/" + playerLevel.ToString());
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string jsonResponse = reader.ReadToEnd();
@@ -88,9 +87,9 @@ public class APIManager : MonoBehaviour
                 SaveData.Level = saveData.Level;
                 SaveData.LevelUp = saveData.LevelUp;
                 SaveData.Request = saveData.Request;
-                SaveData.ConstitutionLevel = saveData.ConstitutionLevel;
+                SaveData.EnduranceLevel = saveData.EnduranceLevel;
                 SaveData.IntelligenceLevel = saveData.IntelligenceLevel;
-                SaveData.StrengthLevel = saveData.StrengthLevel;
+                SaveData.GatheringLevel = saveData.GatheringLevel;
                 SaveData.WisdomLevel = saveData.WisdomLevel;
                 SaveData.FlowerSpawn = saveData.FlowerSpawn;
                 SaveData.GemstoneSpawn = saveData.GemstoneSpawn;
@@ -112,9 +111,9 @@ public class APIManager : MonoBehaviour
                 Inventory.Flower = saveData.Inventory.Flower;
                 Inventory.Mushroom = saveData.Inventory.Mushroom;
                 Inventory.Gemstone = saveData.Inventory.Gemstone;
-                Inventory.ConstitutionPotion = saveData.Inventory.ConstitutionPotion;
+                Inventory.EndurancePotion = saveData.Inventory.EndurancePotion;
                 Inventory.IntelligencePotion = saveData.Inventory.IntelligencePotion;
-                Inventory.StrengthPotion = saveData.Inventory.StrengthPotion;
+                Inventory.GatheringPotion = saveData.Inventory.GatheringPotion;
                 Inventory.WisdomPotion = saveData.Inventory.WisdomPotion;
                 Inventory.Axe = saveData.Inventory.Axe;
                 Inventory.Pitchfork = saveData.Inventory.Pitchfork;
@@ -163,9 +162,9 @@ public class APIManager : MonoBehaviour
         int Flower = Inventory.Flower;
         int Mushroom = Inventory.Mushroom;
         int Gemstone = Inventory.Gemstone;
-        int ConstitutionPotion = Inventory.ConstitutionPotion;
+        int EndurancePotion = Inventory.EndurancePotion;
         int IntelligencePotion = Inventory.IntelligencePotion;
-        int StrengthPotion = Inventory.StrengthPotion;
+        int GatheringPotion = Inventory.GatheringPotion;
         int WisdomPotion = Inventory.WisdomPotion;
         bool Axe = Inventory.Axe;
         bool Pitchfork = Inventory.Pitchfork;
@@ -174,9 +173,9 @@ public class APIManager : MonoBehaviour
         string json = "\"{\\\"Level\\\": " + SaveData.Level +
             ", \\\"LevelUp\\\":\\\"" + SaveData.LevelUp +
             "\\\", \\\"Request\\\":\\\"" + SaveData.Request +
-            "\\\", \\\"ConstitutionLevel\\\": " + SaveData.ConstitutionLevel +
+            "\\\", \\\"EnduranceLevel\\\": " + SaveData.EnduranceLevel +
             ", \\\"IntelligenceLevel\\\": " + SaveData.IntelligenceLevel +
-            ", \\\"StrengthLevel\\\": " + SaveData.StrengthLevel +
+            ", \\\"GatheringLevel\\\": " + SaveData.GatheringLevel +
             ", \\\"WisdomLevel\\\": " + SaveData.WisdomLevel +
             ", \\\"FlowerSpawn\\\": " + SaveData.FlowerSpawn +
             ", \\\"GemstoneSpawn\\\": " + SaveData.GemstoneSpawn +
@@ -192,9 +191,9 @@ public class APIManager : MonoBehaviour
                 "\\\"Flower\\\":" + Flower + "," +
                 "\\\"Mushroom\\\":" + Mushroom + "," +
                 "\\\"Gemstone\\\":" + Gemstone + "," +
-                "\\\"ConstitutionPotion\\\":" + ConstitutionPotion + "," +
+                "\\\"EndurancePotion\\\":" + EndurancePotion + "," +
                 "\\\"IntelligencePotion\\\":" + IntelligencePotion + "," +
-                "\\\"StrengthPotion\\\":" + StrengthPotion + "," +
+                "\\\"GatheringPotion\\\":" + GatheringPotion + "," +
                 "\\\"WisdomPotion\\\":" + WisdomPotion + "," +
                 "\\\"Axe\\\":\\\"" + Axe + "\\\"," +
                 "\\\"Pitchfork\\\":\\\"" + Pitchfork + "\\\"," +

@@ -17,9 +17,9 @@ public class Inventory : MonoBehaviour {
     public static int Gemstone{ get; set; }
 
     //Potions
-    public static int ConstitutionPotion { get; set; }
+    public static int EndurancePotion { get; set; }
     public static int IntelligencePotion { get; set; }
-    public static int StrengthPotion { get; set; }
+    public static int GatheringPotion { get; set; }
     public static int WisdomPotion { get; set; }
 
     //Tools

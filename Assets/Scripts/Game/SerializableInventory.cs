@@ -18,9 +18,9 @@ public class SerializableInventory
     public int Gemstone { get; set; }
 
     //Potions
-    public int ConstitutionPotion { get; set; }
+    public int EndurancePotion { get; set; }
     public int IntelligencePotion { get; set; }
-    public int StrengthPotion { get; set; }
+    public int GatheringPotion { get; set; }
     public int WisdomPotion { get; set; }
 
     //Tools

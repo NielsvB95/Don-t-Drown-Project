@@ -41,7 +41,7 @@ public class QuizController : MonoBehaviour
     {
         SpawnRandomChanceResource();
         Time.timeScale = 1f;
-        timeRemaining = baseTimeLimit + SaveData.ConstitutionLevel * 10;
+        timeRemaining = baseTimeLimit + SaveData.EnduranceLevel * 10;
         UpdateTimeRemainingDisplay();
         isQuizActive = true;
     }
@@ -155,38 +155,129 @@ public class QuizController : MonoBehaviour
         resultText = "Quiz afgelopen. Je hebt de volgende spullen verzameld:\n";
         if (correctAnswers["Pebble"] >= 3)
         {
-            Inventory.Pebble++;
-            resultText += "Kiezel: 1\n";
+            if (correctAnswers["Pebble"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Pebble = Inventory.Pebble + 3;
+                resultText += "Kiezel: 3\n";
+            }
+            else if (correctAnswers["Pebble"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Pebble = Inventory.Pebble + 2;
+                resultText += "Kiezel: 2\n";
+            }
+            else
+            {
+                Inventory.Pebble++;
+                resultText += "Kiezel: 1\n";
+            }               
         }
         if (correctAnswers["Stick"] >= 3)
         {
-            Inventory.Stick++;
-            resultText += "Stok: 1\n";
+            if (correctAnswers["Stick"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Stick = Inventory.Stick + 3;
+                resultText += "Stok: 3\n";
+            }
+            else if (correctAnswers["Stick"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Stick = Inventory.Stick + 2;
+                resultText += "Stok: 2\n";
+            }
+            else
+            {
+                Inventory.Stick++;
+                resultText += "Stok: 1\n";
+            }
         }
         if (correctAnswers["Wood"] >= 3)
         {
-            resultText += "Hout: 1\n";
-            Inventory.Wood++;
+            if (correctAnswers["Wood"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Wood = Inventory.Wood + 3;
+                resultText += "Hout: 3\n";
+            }
+            else if (correctAnswers["Wood"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Wood = Inventory.Wood + 2;
+                resultText += "Hout: 2\n";
+            }
+            else
+            {
+                Inventory.Wood++;
+                resultText += "Hout: 1\n";
+            }
         }
         if (correctAnswers["Stone"] >= 3)
         {
-            resultText += "Steen: 1\n";
-            Inventory.Stone++;
+            if (correctAnswers["Stone"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Stone = Inventory.Stone + 3;
+                resultText += "Steen: 3\n";
+            }
+            else if (correctAnswers["Stone"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Stone = Inventory.Stone + 2;
+                resultText += "Steen: 2\n";
+            }
+            else
+            {
+                Inventory.Stone++;
+                resultText += "Steen: 1\n";
+            }
         }
         if (correctAnswers["Grass"] >= 3)
         {
-            resultText += "Gras: 1\n";
-            Inventory.Grass++;
+            if (correctAnswers["Grass"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Grass = Inventory.Grass + 3;
+                resultText += "Gras: 3\n";
+            }
+            else if (correctAnswers["Grass"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Grass = Inventory.Grass + 2;
+                resultText += "Gras: 2\n";
+            }
+            else
+            {
+                Inventory.Grass++;
+                resultText += "Gras: 1\n";
+            }
         }
         if (correctAnswers["Iron"] >= 3)
         {
-            resultText += "IJzer: 1\n";
-            Inventory.Iron++;
+            if (correctAnswers["Iron"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Iron = Inventory.Iron + 3;
+                resultText += "IJzer: 3\n";
+            }
+            else if (correctAnswers["Iron"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Iron = Inventory.Iron + 2;
+                resultText += "IJzer: 2\n";
+            }
+            else
+            {
+                Inventory.Iron++;
+                resultText += "IJzer: 1\n";
+            }
         }
         if (correctAnswers["Straw"] >= 3)
         {
-            resultText += "Stro: 1\n";
-            Inventory.Straw++;
+            if (correctAnswers["Straw"] >= 5 && SaveData.GatheringLevel >= 6)
+            {
+                Inventory.Straw = Inventory.Straw + 3;
+                resultText += "Stro: 3\n";
+            }
+            else if (correctAnswers["Straw"] >= 4 && SaveData.GatheringLevel >= 3)
+            {
+                Inventory.Straw = Inventory.Straw + 2;
+                resultText += "Stro: 2\n";
+            }
+            else
+            {
+                Inventory.Straw++;
+                resultText += "Stro: 1\n";
+            }
         }
         if (correctAnswers["Mushroom"] >= 1)
         {

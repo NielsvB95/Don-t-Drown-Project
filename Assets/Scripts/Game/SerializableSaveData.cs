@@ -8,9 +8,9 @@ public class SerializableSaveData
     public int Level { get; set; }
     public bool LevelUp { get; set; }
     public bool Request { get; set; }
-    public int ConstitutionLevel { get; set; }
+    public int EnduranceLevel { get; set; }
     public int IntelligenceLevel { get; set; }
-    public int StrengthLevel { get; set; }
+    public int GatheringLevel { get; set; }
     public int WisdomLevel { get; set; }
     public int FlowerSpawn { get; set; }
     public int GemstoneSpawn { get; set; }
